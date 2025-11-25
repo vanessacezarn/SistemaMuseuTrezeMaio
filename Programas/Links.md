@@ -1,13 +1,13 @@
 # Programas utilizados no desenvolvimento do trabalho
 
-## brModelo
+### brModelo
 Link: https://www.sis4.com
 
-## IntelliJ
+### IntelliJ
 Link: https://www.jetbrains.com/pt-br/idea/
 
-## Scene Builder
+### Scene Builder
 Link: https://gluonhq.com/products/scene-builder/
 
-## Java FX
+### Java FX
 Link: https://openjfx.io/
