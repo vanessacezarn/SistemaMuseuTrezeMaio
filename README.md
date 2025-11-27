@@ -17,3 +17,8 @@ Implementar o banco de dados no SQL Server, popular o banco de dados com exemplo
 Desenvolver o software funcional para o registro, controle e consulta das obras da biblioteca e do acervo histórico. Deverá ser entregue ao final dessa fase um Sistema de Gestão da Biblioteca, com sofwtare funcional e código-fonte, e um relatório de testes e validação
 #### 5) Implantação e Capacitação
 Planejar a entrega do sistema, incluindo a instalação no local e a capacitação da equipe que utilizará as ferramentas. Assim, é necessário entregar um plano de implantação contendo a infraestrutura necessária e o cronograma de go-live, além de um manual do usuário e o material de treinamento para a equipe do museu.
+### ➤ Programas utilizados no desenvolvimento do trabalho
+- brModelos (link: https://www.sis4.com)
+- Intellij (link: https://www.jetbrains.com/pt-br/idea/)
+- Scene Builder (link: https://gluonhq.com/products/scene-builder/)
+- Java Fx (link: https://openjfx.io/)
