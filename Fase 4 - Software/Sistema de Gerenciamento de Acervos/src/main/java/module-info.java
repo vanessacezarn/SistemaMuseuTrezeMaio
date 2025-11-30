@@ -2,7 +2,8 @@ module eglv.sistemagerenciamentoacervos {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
-    requires eglv.sistemagerenciamentoacervos;
+    requires java.desktop;
+    requires javafx.base;
 
     opens eglv.sistemagerenciamentoacervos to javafx.fxml;
     opens eglv.sistemagerenciamentoacervos.controller to javafx.fxml;
