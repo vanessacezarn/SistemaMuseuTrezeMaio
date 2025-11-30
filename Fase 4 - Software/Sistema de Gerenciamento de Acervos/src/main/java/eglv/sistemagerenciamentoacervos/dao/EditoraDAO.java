@@ -33,7 +33,7 @@ public class EditoraDAO {
     }
 
     public void excluir(int id) throws SQLException {
-        final String sql = "DELETE FROM editora WHERE id=?";
+        final String sql = "DELETE FROM dbo.editora WHERE id=?";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -42,7 +42,7 @@ public class EditoraDAO {
     }
 
     public Editora buscarPorId(int id) throws SQLException {
-        final String sql = "SELECT id, nome, localizacao FROM editora WHERE id=?";
+        final String sql = "SELECT id, nome, localizacao FROM dbo.editora WHERE id=?";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -53,7 +53,7 @@ public class EditoraDAO {
         return null;
     }
     public List<Editora> listar() throws SQLException {
-        final String sql = "SELECT id, nome, localizao FROM editora ORDER BY id DESC";
+        final String sql = "SELECT id, nome, localizao FROM dbo.editora ORDER BY id DESC";
         List<Editora> lista = new ArrayList<>();
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
