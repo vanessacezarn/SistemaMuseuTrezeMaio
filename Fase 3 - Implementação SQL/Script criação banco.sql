@@ -1,3 +1,16 @@
+/*UTILIZAR PK E UNIQUE FICA REPETITVO JÁ QUE QUANDO É PK ELA JÁ É UNIQUE ENTÃO QUE RETIRAR O UNIQUE E ADICONAL NOT NULL E IDENTITY
+ONDE É VARCHAR TEM ESPECIFICAR O TAMANHO 
+ID_ITEM_ACERVO É PRA QUE ? SE ELE TIVER UM EM CADA TABELA E FOR IDENTITY VAI GERAR UM NUMERO PARA CADA OU SEGUE OS MESMO PARA TODAS
+
+EXEMPLO DE UMA TABELA FEITO PELO HERYSSON TO ME BASEADO NELA
+CREATE TABLE [Autor] (
+  [id] int not null identity,
+  [nome] varchar(100) not null,
+  [nacionalidade] varchar(50),
+  PRIMARY KEY ([id])
+);
+
+*/
 IF NOT EXISTS (SELECT 1 FROM sys.databases WHERE name = N'ACERVO_TREZE_MAIO')
 BEGIN
     CREATE DATABASE [ACERVO_TREZE_MAIO];
@@ -21,42 +34,54 @@ CREATE TABLE Usuario (
 );
 
 CREATE TABLE livro (
-    isbn VARCHAR,
+    id_livro INTEGER NOT NULL IDENTITY,
+    id_item_acervo INTEGER NOT NULL ,
+    tipo VARCHAR(20) NOT NULL,
+    codigo_livro VARCHAR(255) NOT NULL ,
+    titulo VARCHAR(255) NOT NULL,
+    subtitulo VARCHAR(255),
+    isbn VARCHAR(13),
     ano_publicacao INTEGER,
-    id_livro INTEGER,
-    codigo_livro VARCHAR,
-    localizacao_acervo VARCHAR,
-    numero_paginas VARCHAR,
-    tipo VARCHAR,
-    edicao VARCHAR,
-    subtitulo VARCHAR,
-    id_item_acervo INTEGER,
-    titulo VARCHAR,
-    idioma VARCHAR,
+    localizacao_acervo VARCHAR(255) NOT NULL,
+    numero_paginas VARCHAR(10),
+    edicao VARCHAR(20) NOT NULL,
+    idioma VARCHAR(20) NOT NULL,
     quantidade INTEGER,
     capa BLOB,
     fk_editora_id_editora INTEGER,
     PRIMARY KEY (id_livro, id_item_acervo),
-    UNIQUE (isbn, id_livro, codigo_livro, id_item_acervo)
+    UNIQUE (isbn, codigo_livro, id_item_acervo)
 );
 
 CREATE TABLE editora (
-    localizacao VARCHAR,
-    id_editora INTEGER PRIMARY KEY,
-    nome VARCHAR
+    id_editora INTEGER NOT NULL IDENTITY,
+    nome VARCHAR(100) NOT NULL,
+    localizacao VARCHAR(255),
+    PRIMARY KEY (id_editora)
+
 );
 
 CREATE TABLE assunto (
-    id_assunto INTEGER PRIMARY KEY UNIQUE,
-    descricao VARCHAR
+    id_assunto INTEGER NOT NULL IDENTITY,
+    descricao VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id_assunto)
 );
+/*CREATE TABLE [Autor] (
+  [id] int not null identity,
+  [nome] varchar(100) not null,
+  [nacionalidade] varchar(50),
+  PRIMARY KEY ([id])
+);
+*/
 
 CREATE TABLE colaborador (
-    nome VARCHAR,
-    sobrenome VARCHAR,
-    nacionalidade VARCHAR,
-    tipo VARCHAR,
-    id_colaborador INTEGER PRIMARY KEY UNIQUE
+    id_colaborador INTEGER NOT NULL IDENTITY,
+    nome VARCHAR (100) NOT NULL,
+    sobrenome VARCHAR (100) NOT NULL,
+    nacionalidade VARCHAR (50),
+    tipo VARCHAR (50) NOT NULL,
+    PRIMARY KEY (id_colaborador)
+
 );
 
 CREATE TABLE revista (
