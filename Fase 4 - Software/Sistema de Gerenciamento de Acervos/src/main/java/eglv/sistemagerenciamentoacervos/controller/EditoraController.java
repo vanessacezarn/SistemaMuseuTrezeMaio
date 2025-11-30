@@ -29,32 +29,32 @@ public class EditoraController {
             String pais = txtPais.getText().trim();
             String estado = txtEstado.getText().trim();
 
-
             if (!pais.isEmpty() && !estado.isEmpty()) {
-                localizacao = pais + " - " + estado;
+                localizacao = estado + " , " + pais;
             } else {
                 localizacao = pais + estado; // um deles pode estar vazio
             }
+            validar(nome);
 
-
-            validar(nome, localizacao);
-
-            //String idStr = txtId.getText();
-            Editora p = new Editora(
-                    //(idStr == null || idStr.isBlank()) ? null : Integer.parseInt(idStr),
-                    null,nome, localizacao
-            );
-
+            Editora p = new Editora(null,nome, localizacao);
             dao.inserir(p);
 
             showInfo("Sucesso", "Registro salvo com sucesso.");
+            limpar();
         } catch (IllegalArgumentException e) {
             showError("Validação", e.getMessage());
         } catch (SQLException e) {
             showError("Banco de dados", e.getMessage());
         }
     }
-    private void validar(String nome, String localizacao) {
+    private void limpar(){
+        txtNome.clear();
+        txtPais.clear();
+        txtEstado.clear();
+    }
+
+
+    private void validar(String nome) {
         if (nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");
 
     }
