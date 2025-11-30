@@ -25,7 +25,7 @@ import java.sql.SQLException;
 
 public class DbConnector {
 
-    public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=bdaula01;encrypt=false";
+    public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
     public static final String USER = "sa";  // ou outro usuário
     public static final String PASS = "0113MA1404A";
 
