@@ -27,7 +27,8 @@ public class AssuntoController {
     @FXML private TableColumn<Assunto, String> colDescricao;
     @FXML private Button btnEditar;
 
-
+    @FXML private Label lblExcluir;
+    @FXML private Button btnExcluir;
 
     private final AssuntoDAO dao = new AssuntoDAO();
     private final ObservableList<Assunto> dados = FXCollections.observableArrayList();
