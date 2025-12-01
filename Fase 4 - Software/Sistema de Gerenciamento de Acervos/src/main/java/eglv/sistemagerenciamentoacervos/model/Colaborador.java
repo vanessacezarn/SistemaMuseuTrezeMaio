@@ -1,7 +1,7 @@
 package eglv.sistemagerenciamentoacervos.model;
 
 public class Colaborador {
-    private Integer id;
+    private Integer id_colaborador;
     private String nome;
     private String sobrenome;
     private String nacionalidade;
@@ -10,17 +10,17 @@ public class Colaborador {
     public Colaborador() {
     }
 
-    public Colaborador(Integer id, String nome, String sobrenome, String nacionalidade, String tipo) {
-        this.id = id;
+    public Colaborador(Integer id_colaborador, String nome, String sobrenome, String nacionalidade, String tipo) {
+        this.id_colaborador = id_colaborador;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.nacionalidade = nacionalidade;
         this.tipo = tipo;
     }
 
-    public Integer getId() {return id; }
+    public Integer getId_colaborador() {return id_colaborador; }
 
-    public void setId(Integer id) {this.id = id;}
+    public void setId_colaborador(Integer id_colaborador) {this.id_colaborador = id_colaborador;}
 
     public String getNome() {return nome; }
 
