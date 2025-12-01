@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.AssuntoController">
+   <children>
+      <Label fx:id="lblEditar" layoutX="79.0" layoutY="20.0" text="ASSUNTOS CADASTRADOS NO ACERVO">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBusca" layoutX="24.0" layoutY="74.0" text="BUSCAR POR DESCRIÇÃO :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBusca" layoutX="246.0" layoutY="73.0" />
+      <TableView fx:id="tblAssuntos" layoutX="33.0" layoutY="142.0" prefHeight="200.0" prefWidth="534.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
+            <TableColumn fx:id="colDescricao" prefWidth="433.0" text="DESCRIÇÃO" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
