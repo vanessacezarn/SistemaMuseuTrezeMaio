@@ -16,24 +16,24 @@ public class EditoraDAO {
             ps.setString(2, e.getLocalizacao());
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
-                if (rs.next()) e.setId(rs.getInt(1));
+                if (rs.next()) e.setId_editora(rs.getInt(1));
             }
         }
     }
     public void atualizar(Editora e) throws SQLException {
-        if (e.getId() == null) throw new SQLException("ID nulo para atualizar.");
-        final String sql = "UPDATE dbo.editora SET nome=?, localizacao=? WHERE id=?";
+        if (e.getId_editora() == null) throw new SQLException("ID nulo para atualizar.");
+        final String sql = "UPDATE dbo.editora SET nome=?, localizacao=? WHERE id_editora=?";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, e.getNome());
             ps.setString(2, e.getLocalizacao());
-            ps.setInt(3, e.getId());
+            ps.setInt(3, e.getId_editora());
             ps.executeUpdate();
         }
     }
 
     public void excluir(int id) throws SQLException {
-        final String sql = "DELETE FROM dbo.editora WHERE id=?";
+        final String sql = "DELETE FROM dbo.editora WHERE id_editora=?";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -42,7 +42,7 @@ public class EditoraDAO {
     }
 
     public Editora buscarPorId(int id) throws SQLException {
-        final String sql = "SELECT id, nome, localizacao FROM dbo.editora WHERE id=?";
+        final String sql = "SELECT id_editora, nome, localizacao FROM dbo.editora WHERE id_editora=?";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
@@ -52,8 +52,29 @@ public class EditoraDAO {
         }
         return null;
     }
+
+    public List<Editora> buscarPorNome(String nome) throws SQLException {
+        final String sql = "SELECT id_editora, nome, localizacao FROM dbo.editora WHERE nome LIKE ?";
+
+        List<Editora> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + nome + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+
+        return lista;
+    }
+
     public List<Editora> listar() throws SQLException {
-        final String sql = "SELECT id, nome, localizao FROM dbo.editora ORDER BY id DESC";
+        final String sql = "SELECT id_editora, nome, localizacao FROM dbo.editora ORDER BY id_editora DESC";
         List<Editora> lista = new ArrayList<>();
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -65,7 +86,7 @@ public class EditoraDAO {
 
     private Editora map(ResultSet rs) throws SQLException {
         return new Editora(
-                rs.getInt("id"),
+                rs.getInt("id_editora"),
                 rs.getString("nome"),
                 rs.getString("localizacao")
         );
