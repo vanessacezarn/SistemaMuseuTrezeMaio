@@ -62,6 +62,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblEscolha" layoutX="81.0" layoutY="112.0" text="SELECIONE NA TABELA ABAIXO A EDITORA QUE DESEJA EXCLUIR." />
+      <Label fx:id="lblEscolha" layoutX="81.0" layoutY="112.0" text="SELECIONE NA TABELA ABAIXO A EDITORA QUE DESEJA EDITAR." />
    </children>
 </AnchorPane>

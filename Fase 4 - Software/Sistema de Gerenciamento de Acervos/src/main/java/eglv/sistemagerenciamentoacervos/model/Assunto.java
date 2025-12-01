@@ -1,20 +1,20 @@
 package eglv.sistemagerenciamentoacervos.model;
 
 public class Assunto {
-    private Integer id;
+    private Integer id_assunto;
     private String descricao;
 
     public Assunto() {
     }
 
-    public Assunto(Integer id, String descricao) {
-        this.id = id;
+    public Assunto(Integer id_assunto, String descricao) {
+        this.id_assunto = id_assunto;
         this.descricao = descricao;
     }
 
-    public Integer getId() {return id; }
+    public Integer getId_assunto() {return id_assunto; }
 
-    public void setId(Integer id) {this.id = id; }
+    public void setId_assunto(Integer id) {this.id_assunto = id; }
 
     public String getDescricao() {return descricao;}
 
