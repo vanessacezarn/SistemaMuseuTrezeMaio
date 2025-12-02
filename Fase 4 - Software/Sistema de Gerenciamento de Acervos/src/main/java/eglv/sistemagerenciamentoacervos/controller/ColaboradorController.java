@@ -36,9 +36,9 @@ public class ColaboradorController {
     @FXML private TableColumn<Colaborador, String> colSobrenome;
     @FXML private TableColumn<Colaborador, String> colNacionalidade;
     @FXML private TableColumn<Colaborador, String> colTipo;
-
     @FXML private Button btnEditar;
 
+    @FXML private Label lblExcluir;
     @FXML private Button btnExcluir;
 
 
@@ -135,7 +135,8 @@ public class ColaboradorController {
         txtNome.clear();
         txtSobrenome.clear();
         txtNacionalidade.clear();
-        cmbTipo.getSelectionModel().clearSelection();
+       // cmbTipo.getSelectionModel().clearSelection();
+        cmbTipo.setValue(null);
     }
 
     @FXML public void btnSalvar() {
@@ -187,6 +188,7 @@ public class ColaboradorController {
         }
     }
 
+    @FXML
     private void btnExcluir() {
         try {
             Colaborador selecionado = tblColaborador.getSelectionModel().getSelectedItem();
