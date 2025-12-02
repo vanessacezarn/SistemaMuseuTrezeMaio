@@ -32,14 +32,14 @@ public class ColaboradorController {
     @FXML private ComboBox<String> cmbEscolha;
     @FXML private TextField txtBusca;
     @FXML private TableView<Colaborador> tblColaborador;
-    @FXML private TableColumn<Colaborador, Number> colId;
     @FXML private TableColumn<Colaborador, String> colNome;
     @FXML private TableColumn<Colaborador, String> colSobrenome;
     @FXML private TableColumn<Colaborador, String> colNacionalidade;
     @FXML private TableColumn<Colaborador, String> colTipo;
-    @FXML private Label lblId;
-    @FXML private TextField txtId;
+
     @FXML private Button btnEditar;
+
+    @FXML private Button btnExcluir;
 
 
     private final ColaboradorDAO dao = new ColaboradorDAO();
@@ -48,9 +48,8 @@ public class ColaboradorController {
 
     @FXML public void initialize(){
         cmbTipo.setItems(FXCollections.observableArrayList("Autor", "Editor", "Organizador","Colaborador","Tradutor","Ilustrador"));
-        cmbEscolha.setItems(FXCollections.observableArrayList("Nome", "Sobrenome", "Nacionalidade","Tipo"));
+        cmbEscolha.setItems(FXCollections.observableArrayList("Nome", "Sobrenome", "Nacionalidade","Tipo","Nome e Sobrenome"));
 
-        colId.setCellValueFactory(c -> new javafx.beans.property.SimpleIntegerProperty(c.getValue().getId_colaborador()));
         colNome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNome()));
         colSobrenome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getSobrenome()));
         colNacionalidade.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNacionalidade()));
@@ -60,25 +59,62 @@ public class ColaboradorController {
         tblColaborador.setItems(dados);
         tblColaborador.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> preencherFormulario(sel));
 
-        txtBusca.textProperty().addListener((obs, old, value) -> filtrarTabela(value.toUpperCase()));
+        txtBusca.textProperty().addListener((obs, old, value) -> {
+            if (cmbEscolha.getValue() == null) {
+
+                if (!value.isBlank()) {
+                    showError("Busca inválida", "Selecione um campo em 'Buscar por' antes de pesquisar.");
+                }
+                limpar();
+                return;
+            }
+            filtrarTabela(value.toUpperCase());
+        });
         recarregarTabela();
     }
 
-    private void filtrarTabela(String nome) {
-        if (nome == null || nome.isBlank()) {
+    private void filtrarTabela(String valor) {
+        if (valor == null || valor.isBlank()) {
             recarregarTabela();
             return;
         }
+        String escolha = cmbEscolha.getValue();
+        if (escolha == null) {
+            return;
+        }
+
         try {
-            dados.setAll(dao.buscarPorNome(nome)); //lista filtrada
+            switch (escolha) {
+                case "Nome":
+                    dados.setAll(dao.buscarPorNome(valor));
+                    break;
+
+                case "Sobrenome":
+                    dados.setAll(dao.buscarPorSobrenome(valor));
+                    break;
+
+                case "Nacionalidade":
+                    dados.setAll(dao.buscarPorNacionalidade(valor));
+                    break;
+
+                case "Tipo":
+                    dados.setAll(dao.buscarPorTipo(valor));
+                    break;
+                case "Nome e Sobrenome":
+                    dados.setAll(dao.buscarNomeSobrenome(valor));
+                    break;
+                default:
+                    recarregarTabela();
+            }
+
         } catch (SQLException e) {
             showError("Banco de dados", e.getMessage());
         }
     }
 
+
     private void preencherFormulario(Colaborador c) {
         if (c == null) return;
-        txtId.setText(String.valueOf(c.getId_colaborador()));
         txtNome.setText(c.getNome());
         txtSobrenome.setText(c.getSobrenome());
         txtNacionalidade.setText(c.getNacionalidade());
@@ -96,7 +132,6 @@ public class ColaboradorController {
     private void limpar(){
         cmbEscolha.getSelectionModel().clearSelection();
         txtBusca.clear();
-        txtId.clear();
         txtNome.clear();
         txtSobrenome.clear();
         txtNacionalidade.clear();
@@ -126,7 +161,8 @@ public class ColaboradorController {
     @FXML
     private void btnEditar() {
         try {
-            if (txtId.getText() == null || txtId.getText().isBlank()) {
+            Colaborador selecionado = tblColaborador.getSelectionModel().getSelectedItem();
+            if (selecionado == null) {
                 showError("Atenção", "Selecione um registro para editar.");
                 return;
             }
@@ -137,8 +173,8 @@ public class ColaboradorController {
 
             validar(Nome, Sobrenome, Tipo);
 
-            String idStr = txtId.getText();
-            Colaborador c = new Colaborador((idStr == null || idStr.isBlank()) ? null : Integer.parseInt(idStr),Nome,Sobrenome,Nacionalidade,Tipo);
+
+            Colaborador c = new Colaborador(selecionado.getId_colaborador(),Nome,Sobrenome,Nacionalidade,Tipo);
             dao.atualizar(c);
 
             showInfo("Sucesso", "Registro editado com sucesso.");
@@ -146,6 +182,29 @@ public class ColaboradorController {
             recarregarTabela();
         } catch (IllegalArgumentException e) {
             showError("Validação", e.getMessage());
+        } catch (SQLException e) {
+            showError("Banco de dados", e.getMessage());
+        }
+    }
+
+    private void btnExcluir() {
+        try {
+            Colaborador selecionado = tblColaborador.getSelectionModel().getSelectedItem();
+
+            if (selecionado == null) {
+                showError("Atenção", "Selecione um registro para excluir.");
+                return;
+            }
+
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Excluir o registro selecionado?", ButtonType.YES, ButtonType.NO);
+            confirm.setHeaderText("Confirmação");
+            confirm.showAndWait();
+
+            if (confirm.getResult() == ButtonType.YES) {
+                dao.excluir(selecionado.getId_colaborador());
+                recarregarTabela();
+                limpar();
+            }
         } catch (SQLException e) {
             showError("Banco de dados", e.getMessage());
         }

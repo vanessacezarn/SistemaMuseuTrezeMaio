@@ -23,13 +23,12 @@
       </Label>
       <ComboBox fx:id="cmbEscolha" layoutX="138.0" layoutY="72.0" prefHeight="30.0" prefWidth="206.0" />
       <TextField fx:id="txtBusca" layoutX="269.0" layoutY="117.0" prefHeight="30.0" prefWidth="256.0" />
-      <TableView fx:id="tblColaborador" layoutX="14.0" layoutY="179.0" prefHeight="243.0" prefWidth="580.0">
+      <TableView fx:id="tblColaborador" layoutX="14.0" layoutY="179.0" prefHeight="282.0" prefWidth="580.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="60.0" text="ID" />
           <TableColumn fx:id="colNome" prefWidth="127.0" text="NOME" />
-            <TableColumn fx:id="colSobrenome" prefWidth="130.0" text="SOBRENOME" />
-            <TableColumn fx:id="colNacionalidade" prefWidth="130.0" text="NACIONALIDADE" />
-            <TableColumn fx:id="colTipo" prefWidth="132.0" text="TIPO" />
+            <TableColumn fx:id="colSobrenome" prefWidth="166.0" text="SOBRENOME" />
+            <TableColumn fx:id="colNacionalidade" prefWidth="152.0" text="NACIONALIDADE" />
+            <TableColumn fx:id="colTipo" prefWidth="134.0" text="TIPO" />
         </columns>
       </TableView>
       <Label fx:id="lblDigite" layoutX="14.0" layoutY="119.0" text="DIGITE O TERMO PARA PESQUISA :">
@@ -66,12 +65,6 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="lblId" layoutX="146.0" layoutY="432.0" text="ID :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtId" editable="false" layoutX="176.0" layoutY="430.0" />
       <Label fx:id="lblEscolha" layoutX="51.0" layoutY="154.0" text="SELECIONE NA TABELA ABAIXO O COLABORADOR QUE DESEJA EDITAR">
          <font>
             <Font size="16.0" />
