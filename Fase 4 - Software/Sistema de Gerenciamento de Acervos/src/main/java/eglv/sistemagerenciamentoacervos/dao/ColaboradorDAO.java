@@ -90,6 +90,7 @@ public class ColaboradorDAO {
         return lista;
     }
 
+
     public List<Colaborador> buscarPorTipo(String tipo) throws SQLException {
         final String sql = "SELECT id_colaborador, nome, sobrenome, nacionalidade, tipo FROM dbo.colaborador WHERE tipo LIKE ?";
 
@@ -107,7 +108,7 @@ public class ColaboradorDAO {
     }
 
     public List<Colaborador> buscarPorNacionalidade(String nacionalidae) throws SQLException {
-        final String sql = "SELECT id_colaborador, nome, sobrenome, nacionalidade, tipo FROM dbo.colaborador WHERE nacionalidae LIKE ?";
+        final String sql = "SELECT id_colaborador, nome, sobrenome, nacionalidade, tipo FROM dbo.colaborador WHERE nacionalidade LIKE ?";
 
         List<Colaborador> lista = new ArrayList<>();
         try (Connection conn = DbConnector.getConnection();
@@ -121,6 +122,26 @@ public class ColaboradorDAO {
         }
         return lista;
     }
+
+    public List<Colaborador> buscarNomeSobrenome(String valor) throws SQLException {
+        final String sql = "SELECT id_colaborador, nome, sobrenome, nacionalidade, tipo FROM dbo.colaborador WHERE (nome+' '+sobrenome) LIKE ?";
+
+        List<Colaborador> lista = new ArrayList<>();
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            String filtro = "%" + valor + "%";
+
+            ps.setString(1, filtro);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+        return lista;
+    }
+
 
     private Colaborador map(ResultSet rs) throws SQLException {
         return new Colaborador(
