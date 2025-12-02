@@ -9,22 +9,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="749.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.ColaboradorController">
    <children>
-      <Label fx:id="lblExcluir" layoutX="186.0" layoutY="32.0" text="EXCLUIR COLABORADOR">
+      <Label fx:id="lblExcluir" layoutX="189.0" layoutY="15.0" text="EXCLUIR COLABORADOR">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblBuscar" layoutX="24.0" layoutY="82.0" text="BUSCAR POR :">
+      <Label fx:id="lblBuscar" layoutX="27.0" layoutY="65.0" text="BUSCAR POR :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbEscolha" layoutX="148.0" layoutY="82.0" prefHeight="30.0" prefWidth="206.0" />
-      <TextField fx:id="txtBusca" layoutX="279.0" layoutY="127.0" prefHeight="30.0" prefWidth="256.0" />
-      <TableView fx:id="tblColaborador" layoutX="24.0" layoutY="189.0" prefHeight="282.0" prefWidth="580.0">
+      <ComboBox fx:id="cmbEscolha" layoutX="151.0" layoutY="65.0" prefHeight="30.0" prefWidth="206.0" />
+      <TextField fx:id="txtBusca" layoutX="282.0" layoutY="110.0" prefHeight="30.0" prefWidth="256.0" />
+      <TableView fx:id="tblColaborador" layoutX="24.0" layoutY="166.0" prefHeight="305.0" prefWidth="580.0">
          <columns>
             <TableColumn fx:id="colNome" prefWidth="127.0" text="NOME" />
             <TableColumn fx:id="colSobrenome" prefWidth="166.0" text="SOBRENOME" />
@@ -32,7 +31,7 @@
             <TableColumn fx:id="colTipo" prefWidth="134.0" text="TIPO" />
          </columns>
       </TableView>
-      <Label fx:id="lblDigite" layoutX="24.0" layoutY="129.0" text="DIGITE O TERMO PARA PESQUISA :">
+      <Label fx:id="lblDigite" layoutX="27.0" layoutY="112.0" text="DIGITE O TERMO PARA PESQUISA :">
          <font>
             <Font size="16.0" />
          </font>
@@ -61,7 +60,7 @@
       <TextField fx:id="txtSobrenome" layoutX="186.0" layoutY="520.0" prefHeight="30.0" prefWidth="367.0" />
       <TextField fx:id="txtNacionalidade" layoutX="186.0" layoutY="563.0" prefHeight="30.0" prefWidth="367.0" />
       <ComboBox fx:id="cmbTipo" layoutX="186.0" layoutY="605.0" prefHeight="30.0" prefWidth="200.0" />
-      <Label fx:id="lblEscolha" layoutX="61.0" layoutY="164.0" text="SELECIONE NA TABELA ABAIXO O COLABORADOR QUE DESEJA EXCLUIR">
+      <Label fx:id="lblEscolha" layoutX="64.0" layoutY="147.0" text="SELECIONE NA TABELA ABAIXO O COLABORADOR QUE DESEJA EXCLUIR">
          <font>
             <Font size="16.0" />
          </font>
@@ -71,5 +70,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnSair" layoutX="555.0" layoutY="18.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
    </children>
 </AnchorPane>

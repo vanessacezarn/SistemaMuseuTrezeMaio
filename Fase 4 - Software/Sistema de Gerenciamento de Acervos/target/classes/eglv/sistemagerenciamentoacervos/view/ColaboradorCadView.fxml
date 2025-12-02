@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="338.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.ColaboradorController">
    <children>
-      <Label fx:id="lblCadastro" layoutX="88.0" layoutY="14.0" text="CADASTRO DE COLABORADOR">
+      <Label fx:id="lblCadastro" layoutX="37.0" layoutY="14.0" text="CADASTRO DE COLABORADOR">
          <font>
             <Font size="24.0" />
          </font>
@@ -43,5 +43,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnSair" layoutX="424.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
    </children>
 </AnchorPane>

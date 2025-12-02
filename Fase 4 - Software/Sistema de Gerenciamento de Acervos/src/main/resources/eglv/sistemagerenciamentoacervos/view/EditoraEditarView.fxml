@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -8,60 +9,66 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="626.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.EditoraController">
+<AnchorPane prefHeight="720.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.EditoraController">
    <children>
       <Label fx:id="lblEditar" layoutX="191.0" layoutY="14.0" text="EDITAR EDITORA">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblBusca" layoutX="20.0" layoutY="61.0" text="BUSCAR POR NOME :">
+      <Label fx:id="lblBusca" layoutX="20.0" layoutY="61.0" text="BUSCAR POR :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtBusca" layoutX="205.0" layoutY="57.0" prefHeight="35.0" prefWidth="203.0" />
-      <TableView fx:id="tblEditoras" layoutX="26.0" layoutY="140.0" prefHeight="213.0" prefWidth="511.0">
+      <TextField fx:id="txtBusca" layoutX="279.0" layoutY="96.0" prefHeight="35.0" prefWidth="203.0" />
+      <TableView fx:id="tblEditoras" layoutX="26.0" layoutY="160.0" prefHeight="307.0" prefWidth="533.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="102.0" text="ID" />
-          <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="173.0" text="NOME" />
-            <TableColumn fx:id="colLocal" minWidth="-1.0" prefWidth="235.0" text="LOCALIZAÇÃO" />
+          <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="203.0" text="NOME" />
+            <TableColumn fx:id="colLocal" minWidth="-1.0" prefWidth="329.0" text="LOCALIZAÇÃO" />
         </columns>
       </TableView>
-      <TextField fx:id="txtId" editable="false" layoutX="158.0" layoutY="359.0" />
-      <TextField fx:id="txtNome" layoutX="158.0" layoutY="399.0" prefHeight="30.0" prefWidth="260.0" />
-      <TextField fx:id="txtPais" layoutX="158.0" layoutY="463.0" prefHeight="30.0" prefWidth="260.0" />
-      <TextField fx:id="txtEstado" layoutX="158.0" layoutY="502.0" prefHeight="30.0" prefWidth="260.0" />
-      <Button fx:id="btnEditar" layoutX="251.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnEditar" text="EDITAR">
+      <TextField fx:id="txtNome" layoutX="163.0" layoutY="472.0" prefHeight="30.0" prefWidth="260.0" />
+      <TextField fx:id="txtPais" layoutX="163.0" layoutY="536.0" prefHeight="30.0" prefWidth="260.0" />
+      <TextField fx:id="txtEstado" layoutX="163.0" layoutY="575.0" prefHeight="30.0" prefWidth="260.0" />
+      <Button fx:id="btnEditar" layoutX="248.0" layoutY="667.0" mnemonicParsing="false" onAction="#btnEditar" text="EDITAR">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="lblId" layoutX="119.0" layoutY="361.0" text="ID :">
+      <Label fx:id="lblNome" layoutX="93.0" layoutY="474.0" text="NOME :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblNome" layoutX="88.0" layoutY="401.0" text="NOME :">
+      <Label fx:id="lblLocalizacao" layoutX="234.0" layoutY="502.0" text="LOCALIZAÇÃO">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblLocalizacao" layoutX="229.0" layoutY="429.0" text="LOCALIZAÇÃO">
+      <Label fx:id="lblPais" layoutX="102.0" layoutY="538.0" text="PAÍS :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblPais" layoutX="97.0" layoutY="465.0" text="PAÍS :">
+      <Label fx:id="lblEstado" layoutX="74.0" layoutY="577.0" text="ESTADO :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblEstado" layoutX="69.0" layoutY="504.0" text="ESTADO :">
+      <Label fx:id="lblEscolha" layoutX="81.0" layoutY="140.0" text="SELECIONE NA TABELA ABAIXO A EDITORA QUE DESEJA EDITAR." />
+      <Label fx:id="lblCidade" layoutX="76.0" layoutY="618.0" text="CIDADE :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblEscolha" layoutX="81.0" layoutY="112.0" text="SELECIONE NA TABELA ABAIXO A EDITORA QUE DESEJA EDITAR." />
+      <TextField fx:id="txtCidade" layoutX="163.0" layoutY="616.0" />
+      <ComboBox fx:id="cmbEscolha" layoutX="139.0" layoutY="60.0" prefHeight="30.0" prefWidth="241.0" />
+      <Label fx:id="lblDigite" layoutX="23.0" layoutY="101.0" text="DIGITE O TERMO PARA PESQUISA :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSair" layoutX="512.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
    </children>
 </AnchorPane>
