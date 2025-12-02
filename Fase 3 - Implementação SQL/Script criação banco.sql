@@ -60,19 +60,19 @@ CREATE TABLE editora (
     PRIMARY KEY (id_editora)
 
 );
+ALTER TABLE editora
+ADD CONSTRAINT unq_nome_localizacao UNIQUE (nome, localizacao);
 
-CREATE TABLE assunto (
+
+create TABLE assunto (
     id_assunto INTEGER NOT NULL IDENTITY,
     descricao VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_assunto)
 );
-/*CREATE TABLE [Autor] (
-  [id] int not null identity,
-  [nome] varchar(100) not null,
-  [nacionalidade] varchar(50),
-  PRIMARY KEY ([id])
-);
-*/
+
+ALTER TABLE assunto
+ADD CONSTRAINT UQ_assunto_descricao UNIQUE (descricao);
+
 
 CREATE TABLE colaborador (
     id_colaborador INTEGER NOT NULL IDENTITY,
@@ -83,6 +83,10 @@ CREATE TABLE colaborador (
     PRIMARY KEY (id_colaborador)
 
 );
+
+ALTER TABLE colaborador
+ADD CONSTRAINT unq_nomeCompleto_tipo UNIQUE (nome,sobrenome, tipo)
+
 
 CREATE TABLE revista (
     volume VARCHAR,
