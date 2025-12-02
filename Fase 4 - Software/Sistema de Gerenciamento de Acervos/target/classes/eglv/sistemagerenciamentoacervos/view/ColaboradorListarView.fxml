@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="760.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.ColaboradorController">
+   <children>
+      <Label fx:id="lblExcluir" layoutX="36.0" layoutY="14.0" text="COLABORADORES CADASTRADOS NO ACERVO">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBuscar" layoutX="19.0" layoutY="60.0" text="BUSCAR POR :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbEscolha" layoutX="143.0" layoutY="60.0" prefHeight="30.0" prefWidth="206.0" />
+      <TextField fx:id="txtBusca" layoutX="274.0" layoutY="105.0" prefHeight="30.0" prefWidth="256.0" />
+      <TableView fx:id="tblColaborador" layoutX="19.0" layoutY="139.0" prefHeight="610.0" prefWidth="586.0">
+         <columns>
+            <TableColumn fx:id="colNome" prefWidth="127.0" text="NOME" />
+            <TableColumn fx:id="colSobrenome" prefWidth="166.0" text="SOBRENOME" />
+            <TableColumn fx:id="colNacionalidade" prefWidth="152.0" text="NACIONALIDADE" />
+            <TableColumn fx:id="colTipo" prefWidth="140.0" text="TIPO" />
+         </columns>
+      </TableView>
+      <Label fx:id="lblDigite" layoutX="19.0" layoutY="107.0" text="DIGITE O TERMO PARA PESQUISA :">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSair" layoutX="559.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
+   </children>
+</AnchorPane>

@@ -73,6 +73,26 @@ public class EditoraDAO {
         return lista;
     }
 
+    public List<Editora> buscarPorLocalizacao(String localizacao) throws SQLException {
+        final String sql = "SELECT id_editora, nome, localizacao FROM dbo.editora WHERE localizacao LIKE ?";
+
+        List<Editora> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + localizacao + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+
+        return lista;
+    }
+
     public List<Editora> listar() throws SQLException {
         final String sql = "SELECT id_editora, nome, localizacao FROM dbo.editora ORDER BY id_editora DESC";
         List<Editora> lista = new ArrayList<>();

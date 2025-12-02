@@ -6,16 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="348.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.AssuntoController">
    <children>
-      <Button fx:id="btnSalvar" layoutX="175.0" layoutY="241.0" mnemonicParsing="false" text="SALVAR" onAction="#btnSalvar">
+      <Button fx:id="btnSalvar" layoutX="175.0" layoutY="241.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Label layoutX="-271.0" layoutY="-102.0" text="Label" />
-      <Label fx:id="lblCadastro" layoutX="102.0" layoutY="24.0" text="CADASTRO DE ASSUNTOS">
+      <Label fx:id="lblCadastro" layoutX="94.0" layoutY="25.0" text="CADASTRO DE ASSUNTOS">
          <font>
             <Font size="24.0" />
          </font>
@@ -26,5 +25,6 @@
          </font>
       </Label>
       <TextArea fx:id="txaDescricao" layoutX="139.0" layoutY="102.0" prefHeight="98.0" prefWidth="276.0" />
+      <Button fx:id="btnSair" layoutX="392.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
    </children>
 </AnchorPane>

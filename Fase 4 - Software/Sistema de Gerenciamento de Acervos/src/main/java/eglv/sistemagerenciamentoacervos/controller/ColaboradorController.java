@@ -1,14 +1,12 @@
 package eglv.sistemagerenciamentoacervos.controller;
 
-import eglv.sistemagerenciamentoacervos.dao.AssuntoDAO;
 import eglv.sistemagerenciamentoacervos.dao.ColaboradorDAO;
-import eglv.sistemagerenciamentoacervos.model.Assunto;
 import eglv.sistemagerenciamentoacervos.model.Colaborador;
-import eglv.sistemagerenciamentoacervos.model.Editora;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -41,36 +39,49 @@ public class ColaboradorController {
     @FXML private Label lblExcluir;
     @FXML private Button btnExcluir;
 
+    @FXML private Button btnSair;
+
 
     private final ColaboradorDAO dao = new ColaboradorDAO();
     private final ObservableList<Colaborador> dados = FXCollections.observableArrayList();
 
 
     @FXML public void initialize(){
-        cmbTipo.setItems(FXCollections.observableArrayList("Autor", "Editor", "Organizador","Colaborador","Tradutor","Ilustrador"));
-        cmbEscolha.setItems(FXCollections.observableArrayList("Nome", "Sobrenome", "Nacionalidade","Tipo","Nome e Sobrenome"));
+        if(cmbTipo!=null){
+            cmbTipo.setItems(FXCollections.observableArrayList("Autor", "Editor", "Organizador","Colaborador","Tradutor","Ilustrador","Outro"));
+        }
+        if (cmbEscolha != null){
+            cmbEscolha.setItems(FXCollections.observableArrayList("Nome", "Sobrenome", "Nacionalidade","Tipo","Nome e Sobrenome"));
+            txtBusca.clear();
+        }
+        if (tblColaborador != null) {
+            colNome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNome()));
+            colSobrenome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getSobrenome()));
+            colNacionalidade.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNacionalidade()));
+            colTipo.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getTipo()));
 
-        colNome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNome()));
-        colSobrenome.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getSobrenome()));
-        colNacionalidade.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getNacionalidade()));
-        colTipo.setCellValueFactory(c -> new javafx.beans.property.SimpleStringProperty(c.getValue().getTipo()));
-
-
-        tblColaborador.setItems(dados);
-        tblColaborador.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> preencherFormulario(sel));
-
-        txtBusca.textProperty().addListener((obs, old, value) -> {
-            if (cmbEscolha.getValue() == null) {
-
-                if (!value.isBlank()) {
-                    showError("Busca inválida", "Selecione um campo em 'Buscar por' antes de pesquisar.");
+            tblColaborador.setItems(dados);
+            tblColaborador.getSelectionModel().selectedItemProperty().addListener((obs, old, sel) -> preencherFormulario(sel));
+        }
+        if (txtBusca != null) {
+            txtBusca.textProperty().addListener((obs, old, value) -> {
+                if (cmbEscolha.getValue() == null) {
+                    if (!value.isBlank()) {
+                        showError("Busca inválida", "Selecione um campo em 'Buscar por' antes de pesquisar.");
+                    }
+                    txtBusca.clear();
+                    return;
                 }
-                limpar();
-                return;
-            }
-            filtrarTabela(value.toUpperCase());
-        });
+                filtrarTabela(value.toLowerCase());
+            });
+        }
+        if (cmbEscolha != null && txtBusca != null) {
+            cmbEscolha.valueProperty().addListener((obs, old, novo) -> {
+                txtBusca.clear();
+            });
+        }
         recarregarTabela();
+
     }
 
     private void filtrarTabela(String valor) {
@@ -130,24 +141,21 @@ public class ColaboradorController {
     }
 
     private void limpar(){
-        cmbEscolha.getSelectionModel().clearSelection();
-        txtBusca.clear();
         txtNome.clear();
         txtSobrenome.clear();
         txtNacionalidade.clear();
-       // cmbTipo.getSelectionModel().clearSelection();
         cmbTipo.setValue(null);
     }
 
     @FXML public void btnSalvar() {
         try {
-            String Nome = txtNome.getText() == null ? "" : txtNome.getText().trim().toUpperCase();
-            String Sobrenome = txtSobrenome.getText() == null ? "" : txtSobrenome.getText().toUpperCase();
-            String Nacionalidade = txtNacionalidade.getText() == null ? "" : txtNacionalidade.getText().toUpperCase();
-            String Tipo = cmbTipo.getValue().toUpperCase();
+            String Nome = txtNome.getText() == null ? "" : txtNome.getText().trim().toLowerCase();
+            String Sobrenome = txtSobrenome.getText() == null ? "" : txtSobrenome.getText().toLowerCase();
+            String Nacionalidade = txtNacionalidade.getText() == null ? "" : txtNacionalidade.getText().toLowerCase();
+            String Tipo = cmbTipo.getValue();
             validar(Nome, Sobrenome, Tipo);
 
-            Colaborador c = new Colaborador(null,Nome, Sobrenome, Nacionalidade, Tipo);
+            Colaborador c = new Colaborador(null,Nome, Sobrenome, Nacionalidade, Tipo.toLowerCase());
             dao.inserir(c);
 
             showInfo("Sucesso", "Registro salvo com sucesso.");
@@ -167,19 +175,19 @@ public class ColaboradorController {
                 showError("Atenção", "Selecione um registro para editar.");
                 return;
             }
-            String Nome = txtNome.getText() == null ? "" : txtNome.getText().trim().toUpperCase();
-            String Sobrenome = txtSobrenome.getText() == null ? "" : txtSobrenome.getText().toUpperCase();
-            String Nacionalidade = txtNacionalidade.getText() == null ? "" : txtNacionalidade.getText().toUpperCase();
-            String Tipo = cmbTipo.getValue().toUpperCase();
-
+            String Nome = txtNome.getText() == null ? "" : txtNome.getText().trim().toLowerCase();
+            String Sobrenome = txtSobrenome.getText() == null ? "" : txtSobrenome.getText().toLowerCase();
+            String Nacionalidade = txtNacionalidade.getText() == null ? "" : txtNacionalidade.getText().toLowerCase();
+            String Tipo = cmbTipo.getValue().toLowerCase();
             validar(Nome, Sobrenome, Tipo);
-
 
             Colaborador c = new Colaborador(selecionado.getId_colaborador(),Nome,Sobrenome,Nacionalidade,Tipo);
             dao.atualizar(c);
 
             showInfo("Sucesso", "Registro editado com sucesso.");
             limpar();
+            txtBusca.clear();
+            cmbEscolha.setValue(null);
             recarregarTabela();
         } catch (IllegalArgumentException e) {
             showError("Validação", e.getMessage());
@@ -192,7 +200,6 @@ public class ColaboradorController {
     private void btnExcluir() {
         try {
             Colaborador selecionado = tblColaborador.getSelectionModel().getSelectedItem();
-
             if (selecionado == null) {
                 showError("Atenção", "Selecione um registro para excluir.");
                 return;
@@ -204,13 +211,24 @@ public class ColaboradorController {
 
             if (confirm.getResult() == ButtonType.YES) {
                 dao.excluir(selecionado.getId_colaborador());
-                recarregarTabela();
                 limpar();
+                txtBusca.clear();
+                cmbEscolha.setValue(null);
+                recarregarTabela();
+
             }
         } catch (SQLException e) {
             showError("Banco de dados", e.getMessage());
         }
     }
+
+    @FXML
+    private void btnSair() {
+        Stage stage = (Stage) btnSair.getScene().getWindow();
+        stage.close();
+    }
+
+
 
     private void validar(String Nome, String Sobrenome, String Tipo) {
         if (Nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");

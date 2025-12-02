@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="561.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.AssuntoController">
+<AnchorPane prefHeight="600.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.AssuntoController">
    <children>
-      <Label fx:id="lblEditar" layoutX="205.0" layoutY="22.0" text="EDITAR ASSUNTO">
+      <Label fx:id="lblEditar" layoutX="146.0" layoutY="14.0" text="EDITAR ASSUNTO">
          <font>
             <Font size="24.0" />
          </font>
@@ -21,30 +21,24 @@
             <Font size="18.0" />
          </font>
       </Label>
-       <Label fx:id="lblEscolha" layoutX="81.0" layoutY="112.0" text="SELECIONE NA TABELA ABAIXO O ASSUNTO QUE DESEJA EDITAR." />
+       <Label fx:id="lblEscolha" layoutX="37.0" layoutY="112.0" text="SELECIONE NA TABELA ABAIXO O ASSUNTO QUE DESEJA EDITAR." />
        <TextField fx:id="txtBusca" layoutX="236.0" layoutY="63.0" />
-      <TableView fx:id="tblAssuntos" layoutX="23.0" layoutY="132.0" prefHeight="200.0" prefWidth="534.0">
+      <TableView fx:id="tblAssuntos" layoutX="23.0" layoutY="132.0" prefHeight="291.0" prefWidth="436.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
           <TableColumn fx:id="colDescricao" prefWidth="433.0" text="DESCRIÇÃO" />
         </columns>
       </TableView>
-      <Label fx:id="lblId" layoutX="91.0" layoutY="351.0" text="ID :">
+      <TextArea fx:id="txaDescricao" layoutX="121.0" layoutY="431.0" prefHeight="105.0" prefWidth="337.0" />
+      <Label fx:id="lblDescricao" layoutX="14.0" layoutY="470.0" text="DESCRIÇÃO :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" editable="false" layoutX="122.0" layoutY="349.0" />
-      <TextArea fx:id="txaDescricao" layoutX="122.0" layoutY="397.0" prefHeight="118.0" prefWidth="337.0" />
-      <Label fx:id="lblDescricao" layoutX="14.0" layoutY="442.0" text="DESCRIÇÃO :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnEditar" layoutX="459.0" layoutY="345.0" mnemonicParsing="false"  onAction="#btnEditar" text="EDITAR" >
+      <Button fx:id="btnEditar" layoutX="200.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnEditar" text="EDITAR">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnSair" layoutX="399.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
    </children>
 </AnchorPane>
