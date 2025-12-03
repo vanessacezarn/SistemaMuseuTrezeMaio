@@ -81,7 +81,7 @@ CREATE TABLE livro (
     edicao VARCHAR(20) NOT NULL,
     idioma VARCHAR(20) NOT NULL,
     quantidade INTEGER,
-    capa BLOB,
+    capa VARBINARY(MAX),
     fk_editora_id_editora INTEGER,
 );
 
@@ -106,7 +106,7 @@ CREATE TABLE revista (
     titulo VARCHAR(255) NOT NULL,
     subtitulo VARCHAR(255),
     quantidade INTEGER,
-    capa BLOB,
+    capa VARBINARY(MAX),
     fk_editora_id_editora INTEGER
 );
 
@@ -131,7 +131,7 @@ CREATE TABLE jornal (
     titulo VARCHAR(255) NOT NULL,
     subtitulo VARCHAR(255),
     quantidade INTEGER,
-    capa BLOB,
+    capa VARBINARY(MAX),
     fk_editora_id_editora INTEGER
 );
 
