@@ -38,7 +38,7 @@ public class JornalDAO {
     }
 
     public void inserirAssuntos(Jornal j) throws SQLException {
-        final String sql = "INSERT INTO item_assunto (fk_jornal_id, fk_assunto_id) VALUES (?, ?)";
+        final String sql = "INSERT INTO item_assunto (fk_jornal_id_jornal, fk_assunto_id_assunto) VALUES (?, ?)";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             for (Assunto a : j.getAssuntos()) {
@@ -51,7 +51,7 @@ public class JornalDAO {
     }
 
     public void inserirColaboradores(Jornal j) throws SQLException {
-        final String sql = "INSERT INTO item_colaborador (fk_jornal_id, fk_colaborador_id) VALUES (?, ?)";
+        final String sql = "INSERT INTO item_colaborador (fk_jornal_id_jornal, fk_colaborador_id_colaborador) VALUES (?, ?)";
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             for (Colaborador c : j.getColaboradores()) {

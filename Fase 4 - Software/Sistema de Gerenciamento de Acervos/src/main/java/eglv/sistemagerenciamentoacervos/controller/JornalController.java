@@ -88,7 +88,7 @@ public class JornalController {
     // EDITORA
     private void carregarEditoras() {
         try {
-            listaOriginal.setAll(Edao.listarNome());
+            listaOriginal.setAll(Edao.listar());
             listaFiltrada = new FilteredList<>(listaOriginal, p -> true);
             tblEditora.setItems(listaFiltrada);
         } catch (SQLException e) {
