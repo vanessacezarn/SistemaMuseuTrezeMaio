@@ -133,5 +133,20 @@ public class EditoraDAO {
             return e;
     }
 
-
+    // Para livro
+    public List<Editora> listarParaLivro() throws SQLException {
+        final String sql = "SELECT id_editora, nome FROM dbo.editora ORDER BY nome ASC";
+        List<Editora> lista = new ArrayList<>();
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Editora e = new Editora();
+                e.setId_editora(rs.getInt("id_editora")); // ESSENCIAL para Livro
+                e.setNome(rs.getString("nome"));
+                lista.add(e);
+            }
+        }
+        return lista;
+    }
 }

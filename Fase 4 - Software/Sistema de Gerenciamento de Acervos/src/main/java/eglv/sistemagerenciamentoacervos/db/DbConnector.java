@@ -34,9 +34,20 @@ public class DbConnector {
         return DriverManager.getConnection(URL, USER, PASS);
     }
      */
+
+    /*
     public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
     public static final String USER = "luizaa";  // ou outro usuário
     public static final String PASS = "koda";
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASS);
+    }
+    */
+
+    public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
+    public static final String USER = "sa";  // ou outro usuário
+    public static final String PASS = "eric123@";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);

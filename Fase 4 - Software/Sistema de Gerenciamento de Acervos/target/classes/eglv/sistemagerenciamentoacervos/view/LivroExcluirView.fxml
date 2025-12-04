@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="eglv.sistemagerenciamentoacervos.controller.LivroExcluirController">
+
+    <children>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- ==========================
+                 ÁREA DE BUSCA
+            =========================== -->
+            <HBox spacing="10">
+                <children>
+                    <Label text="Pesquisar por:"/>
+                    <ComboBox fx:id="cbOpcaoBusca" prefWidth="150"/>
+                    <TextField fx:id="txtBusca" promptText="Digite o valor..."/>
+                    <Button text="Buscar" onAction="#buscarLivro"/>
+                    <Button text="Recarregar" onAction="#carregarTabela"/>
+                </children>
+            </HBox>
+
+            <!-- ==========================
+                 TABELA DE LIVROS
+            =========================== -->
+            <TableView fx:id="tblLivros" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+                    <TableColumn fx:id="colISBN" text="ISBN" prefWidth="150"/>
+                    <TableColumn fx:id="colAno" text="Ano" prefWidth="80"/>
+                    <TableColumn fx:id="colIdioma" text="Idioma" prefWidth="100"/>
+                    <TableColumn fx:id="colQuantidade" text="Qtd" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <!-- ==========================
+                 BOTÕES DE AÇÃO
+            =========================== -->
+            <HBox spacing="12">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <children>
+                    <Button text="Excluir" onAction="#excluirLivro" style="-fx-font-weight: bold; -fx-text-fill: red;"/>
+                    <Button text="Fechar" onAction="#sair"/>
+                </children>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
