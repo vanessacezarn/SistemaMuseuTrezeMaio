@@ -133,6 +133,6 @@
          </columnResizePolicy>
       </TableView>
       <TextField fx:id="txtPesquisaColaborador" layoutX="709.0" layoutY="382.0" />
-      <Button fx:id="txtSalvar" layoutX="709.0" layoutY="333.0" mnemonicParsing="false" text="SALVAR" />
+      <Button fx:id="btnSalvar" layoutX="709.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR" />
    </children>
 </AnchorPane>
