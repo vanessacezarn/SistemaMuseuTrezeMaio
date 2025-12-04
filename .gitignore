@@ -1,0 +1,8 @@
+# Pastas de build
+target/
+
+# Arquivos temporários do IDE
+*.class
+*.log
+*.iml
+.idea/
