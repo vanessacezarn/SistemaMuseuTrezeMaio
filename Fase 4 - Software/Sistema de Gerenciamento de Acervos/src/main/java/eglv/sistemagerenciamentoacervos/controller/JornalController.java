@@ -192,7 +192,7 @@ public class JornalController {
             Editora editoraSelecionada = tblEditora.getSelectionModel().getSelectedItem();
 
             Jornal j = new Jornal();
-            j.setCodigo_jornal(Integer.parseInt(txtCodigo.getText()));
+            j.setCodigo_jornal(txtCodigo.getText());
             j.setPais(txtPais.getText());
             j.setEstado(txtEstado.getText());
             j.setCidade(txtCidade.getText());
