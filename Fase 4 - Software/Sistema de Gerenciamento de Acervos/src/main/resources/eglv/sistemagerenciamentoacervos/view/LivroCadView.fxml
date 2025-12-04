@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="eglv.sistemagerenciamentoacervos.controller.LivroCadastrarController">
+
+    <children>
+        <ScrollPane fitToWidth="true" pannable="true" vbarPolicy="ALWAYS"
+                    AnchorPane.topAnchor="0"
+                    AnchorPane.bottomAnchor="0"
+                    AnchorPane.leftAnchor="0"
+                    AnchorPane.rightAnchor="0">
+
+            <content>
+                <VBox spacing="12">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <!-- ==========================
+                         DADOS DO LIVRO
+                    =========================== -->
+                    <TitledPane text="Dados do Livro" expanded="true">
+                        <content>
+                            <GridPane hgap="12" vgap="12">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="25"/>
+                                    <ColumnConstraints percentWidth="75"/>
+                                </columnConstraints>
+
+                                <children>
+                                    <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtCodigo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                    <Label text="Título:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtTitulo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                    <Label text="Subtítulo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtSubtitulo" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                    <Label text="ISBN:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtISBN" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                    <Label text="Ano Publicação:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtAno" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                                    <Label text="Localização Acervo:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtLocalizacao" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                                    <Label text="Número Páginas:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtPaginas" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                                    <Label text="Edição:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtEdicao" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                                    <Label text="Idioma:" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtIdioma" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+                                    <Label text="Quantidade:" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+                                    <TextField fx:id="txtQuantidade" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+                                    <Label text="Capa:" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
+                                    <HBox spacing="10" GridPane.rowIndex="10" GridPane.columnIndex="1">
+                                        <children>
+                                            <Button text="Selecionar Imagem" onAction="#selecionarCapa"/>
+                                            <ImageView fx:id="imgPreview" fitHeight="100" fitWidth="80" preserveRatio="true"/>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </GridPane>
+                        </content>
+                    </TitledPane>
+
+                    <!-- ==========================
+                         EDITORA
+                    =========================== -->
+                    <TitledPane text="Selecionar Editora" expanded="true">
+                        <content>
+                            <VBox spacing="8">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+                                <children>
+                                    <TextField fx:id="txtPesquisaEditora" promptText="Pesquisar editora..."/>
+                                    <TableView fx:id="tblEditora">
+                                        <columns>
+                                            <TableColumn fx:id="colEditora" prefWidth="300" text="Editora"/>
+                                        </columns>
+                                    </TableView>
+                                </children>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- ==========================
+                         ASSUNTOS
+                    =========================== -->
+                    <TitledPane text="Selecionar Assuntos" expanded="true">
+                        <content>
+                            <VBox spacing="8">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+                                <children>
+                                    <TextField fx:id="txtPesquisaAssunto" promptText="Pesquisar assunto..."/>
+                                    <TableView fx:id="tblAssunto">
+                                        <columns>
+                                            <TableColumn fx:id="colAssunto" prefWidth="300" text="Assunto"/>
+                                        </columns>
+                                    </TableView>
+                                </children>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- ==========================
+                         COLABORADORES
+                    =========================== -->
+                    <TitledPane text="Selecionar Colaboradores" expanded="true">
+                        <content>
+                            <VBox spacing="8">
+                                <padding>
+                                    <Insets top="10" right="10" bottom="10" left="10"/>
+                                </padding>
+                                <children>
+                                    <TextField fx:id="txtPesquisaColaborador" promptText="Pesquisar colaborador..."/>
+                                    <TableView fx:id="tblColaborador">
+                                        <columns>
+                                            <TableColumn fx:id="colColaborador" prefWidth="200" text="Nome"/>
+                                            <TableColumn fx:id="colTipo" prefWidth="100" text="Tipo"/>
+                                        </columns>
+                                    </TableView>
+                                </children>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <!-- ==========================
+                         BOTÕES
+                    =========================== -->
+                    <HBox spacing="12">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <children>
+                            <Button text="Salvar" onAction="#salvarLivro" style="-fx-font-weight: bold;"/>
+                            <Button text="Limpar" onAction="#limparCampos"/>
+                            <Button fx:id="btnSair" text="Sair" onAction="#sair"/>
+                        </children>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
