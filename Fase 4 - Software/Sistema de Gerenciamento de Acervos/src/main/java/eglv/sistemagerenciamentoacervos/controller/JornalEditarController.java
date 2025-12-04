@@ -3,9 +3,11 @@ package eglv.sistemagerenciamentoacervos.controller;
 import eglv.sistemagerenciamentoacervos.dao.AssuntoDAO;
 import eglv.sistemagerenciamentoacervos.dao.ColaboradorDAO;
 import eglv.sistemagerenciamentoacervos.dao.EditoraDAO;
+import eglv.sistemagerenciamentoacervos.dao.JornalDAO;
 import eglv.sistemagerenciamentoacervos.model.Assunto;
 import eglv.sistemagerenciamentoacervos.model.Colaborador;
 import eglv.sistemagerenciamentoacervos.model.Editora;
+import eglv.sistemagerenciamentoacervos.model.Jornal;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -54,6 +56,20 @@ public class JornalEditarController {
     private ObservableList<Colaborador> listaColaboradores = FXCollections.observableArrayList();
     private FilteredList<Colaborador> listaColaboradoresFiltrada;
 
+    //JORNAL
+    @FXML
+    private TableView<Jornal> tblJornal;
+    @FXML
+    private TableColumn<Jornal, String> colCodigo;
+    @FXML
+    private TableColumn<Jornal, String> colTitulo;
+    @FXML
+    private TextField txtBusca;
+
+    private final JornalDAO Jdao = new JornalDAO();
+    private ObservableList<Jornal> listaOriginalJornal = FXCollections.observableArrayList();
+    private FilteredList<Jornal> listaFiltradaJornal;
+
     @FXML
     public void initialize() {
         //EDITORA
@@ -74,6 +90,13 @@ public class JornalEditarController {
         tblColaborador.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         carregarColaboradores();
         configurarFiltroColaboradores();
+
+        //JORNAL
+        colCodigo.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getCodigo_jornal()));
+        colTitulo.setCellValueFactory(cell -> new SimpleStringProperty(cell.getValue().getTitulo()));
+        tblJornal.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        carregarJornal();
+        configurarFiltroJornal();
     }
 
     // EDITORA
@@ -135,6 +158,28 @@ public class JornalEditarController {
                 if (newV == null || newV.isEmpty()) return true;
                 return colaborador.getNome().toLowerCase().contains(newV.toLowerCase()) ||
                         colaborador.getTipo().toLowerCase().contains(newV.toLowerCase());
+            });
+        });
+    }
+
+    //JORNAL
+    private void carregarJornal() {
+        try {
+            JornalDAO jDAO = new JornalDAO();
+            listaOriginalJornal.setAll(jDAO.listar());
+            listaFiltradaJornal = new FilteredList<>(listaOriginalJornal, p -> true);
+            tblJornal.setItems(listaFiltradaJornal);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void configurarFiltroJornal() {
+        txtBusca.textProperty().addListener((obs, oldV, newV) -> {
+            listaFiltradaJornal.setPredicate(jornal -> {
+                if (newV == null || newV.isEmpty()) return true;
+                return jornal.getCodigo_jornal().toLowerCase().contains(newV.toLowerCase()) ||
+                        jornal.getTitulo().toLowerCase().contains(newV.toLowerCase());
             });
         });
     }

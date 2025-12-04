@@ -28,6 +28,24 @@ public class Jornal {
     public Jornal() {
     }
 
+    public Jornal(Integer id_jornal, String codigo_jornal, String pais, String estado, String cidade, Date data, String localizacao_acervo, String numero_paginas, String edicao, String idioma, String titulo, String subtitulo, Integer quantidade, byte[] capa, Editora editora) {
+        this.id_jornal = id_jornal;
+        this.codigo_jornal = codigo_jornal;
+        this.pais = pais;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.data = data;
+        this.localizacao_acervo = localizacao_acervo;
+        this.numero_paginas = numero_paginas;
+        this.edicao = edicao;
+        this.idioma = idioma;
+        this.titulo = titulo;
+        this.subtitulo = subtitulo;
+        this.quantidade = quantidade;
+        this.capa = capa;
+        this.editora = editora;
+    }
+
     public byte[] getCapa() {
         return capa;
     }
