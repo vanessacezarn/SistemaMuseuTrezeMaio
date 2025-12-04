@@ -69,7 +69,7 @@ public class JornalDAO {
     public List<Jornal> listar() throws SQLException{
         final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
                 " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
-                "FROM dbo.jornal ORDER BY id_jornal DESC";
+                " FROM dbo.jornal ORDER BY id_jornal DESC";
 
         List<Jornal> lista = new ArrayList<>();
         try (Connection conn = DbConnector.getConnection();

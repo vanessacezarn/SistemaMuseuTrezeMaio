@@ -209,11 +209,47 @@ public class JornalEditarController {
         }
     }
 
+    //SELECIONAR
+
+    @FXML private TextField txtCodigo;
+    @FXML private TextField txtPais;
+    @FXML private TextField txtEstado;
+    @FXML private TextField txtCidade;
+    @FXML private DatePicker dateData;
+    @FXML private TextField txtLocalizacao;
+    @FXML private TextField txtPaginas;
+    @FXML private TextField txtEdicao;
+    @FXML private TextField txtIdioma;
+    @FXML private TextField txtTitulo;
+    @FXML private TextField txtSubtitulo;
+
+    private void preencherFormulario(Jornal j) {
+        if (j == null) return;
+        limparCampos();
+
+    }
+
     @FXML
     private void salvarJornal() {
         System.out.println("Salvar jornal chamado!");
     }
 
+    private void limparCampos() {
+        txtCodigo.setText("");
+        txtPais.setText("");
+        txtEstado.setText("");
+        txtCidade.setText("");
+        txtLocalizacao.setText("");
+        txtPaginas.setText("");
+        txtEdicao.setText("");
+        txtIdioma.setText("");
+        txtTitulo.setText("");
+        txtSubtitulo.setText("");
+        dateData.setValue(null);
+        tblAssunto.getSelectionModel().clearSelection();
+        tblColaborador.getSelectionModel().clearSelection();
+        tblEditora.getSelectionModel().clearSelection();
+    }
 
     private void showError(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR);
@@ -222,6 +258,7 @@ public class JornalEditarController {
         a.setContentText(msg);
         a.showAndWait();
     }
+
 
     @FXML
     private Button btnSair;
