@@ -18,7 +18,7 @@ public class Editora {
         return id_editora;
     }
 
-    public void setId_editora(Integer id) {
+    public void setId_editora(Integer id_editora) {
         this.id_editora = id_editora;
     }
 

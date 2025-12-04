@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-
 public class EditoraController {
     @FXML private Label lblCadEditora;
     @FXML private Label lblNome;
@@ -247,8 +246,6 @@ public class EditoraController {
     private void validar(String nome,String pais) {
         if (nome.isBlank()) throw new IllegalArgumentException("Nome é obrigatório.");
         if(pais.isBlank()) throw new IllegalArgumentException("Pais é obrigatório");
-
-
     }
     private void showError(String title, String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR);

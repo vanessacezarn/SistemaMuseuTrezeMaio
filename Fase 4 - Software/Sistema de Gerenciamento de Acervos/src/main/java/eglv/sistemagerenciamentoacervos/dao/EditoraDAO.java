@@ -104,12 +104,33 @@ public class EditoraDAO {
         return lista;
     }
 
+    //para jornal controller
+    public List<Editora> listarNome() throws SQLException {
+        final String sql = "SELECT nome FROM dbo.editora ORDER BY nome DESC";
+        List<Editora> lista = new ArrayList<>();
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) lista.add(map(rs));
+        }
+        return lista;
+    }
+
     private Editora map(ResultSet rs) throws SQLException {
-        return new Editora(
-                rs.getInt("id_editora"),
-                rs.getString("nome"),
-                rs.getString("localizacao")
-        );
+            Editora e = new Editora();
+
+            // so le se existir no SELECT
+            try {
+                e.setId_editora(rs.getInt("id_editora"));
+            } catch (SQLException ignored) {}
+
+            try {
+                e.setLocalizacao(rs.getString("localizacao"));
+            } catch (SQLException ignored) {}
+
+            e.setNome(rs.getString("nome")); // essa SEMPRE existe
+
+            return e;
     }
 
 
