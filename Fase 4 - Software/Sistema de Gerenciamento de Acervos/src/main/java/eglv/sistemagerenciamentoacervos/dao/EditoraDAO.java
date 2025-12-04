@@ -20,6 +20,7 @@ public class EditoraDAO {
             }
         }
     }
+
     public void atualizar(Editora e) throws SQLException {
         if (e.getId_editora() == null) throw new SQLException("ID nulo para atualizar.");
         final String sql = "UPDATE dbo.editora SET nome=?, localizacao=? WHERE id_editora=?";
@@ -104,33 +105,22 @@ public class EditoraDAO {
         return lista;
     }
 
-    //para jornal controller
-    public List<Editora> listarNome() throws SQLException {
-        final String sql = "SELECT nome FROM dbo.editora ORDER BY nome DESC";
-        List<Editora> lista = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) lista.add(map(rs));
-        }
-        return lista;
-    }
-
     private Editora map(ResultSet rs) throws SQLException {
-            Editora e = new Editora();
+        Editora e = new Editora();
+        // so le se existir no SELECT
+        try {
+            e.setId_editora(rs.getInt("id_editora"));
+        } catch (SQLException ignored) {
+        }
 
-            // so le se existir no SELECT
-            try {
-                e.setId_editora(rs.getInt("id_editora"));
-            } catch (SQLException ignored) {}
+        try {
+            e.setLocalizacao(rs.getString("localizacao"));
+        } catch (SQLException ignored) {
+        }
 
-            try {
-                e.setLocalizacao(rs.getString("localizacao"));
-            } catch (SQLException ignored) {}
+        e.setNome(rs.getString("nome")); // essa SEMPRE existe
 
-            e.setNome(rs.getString("nome")); // essa SEMPRE existe
-
-            return e;
+        return e;
     }
 
     // Para livro

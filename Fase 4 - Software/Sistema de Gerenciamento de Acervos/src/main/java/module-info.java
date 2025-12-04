@@ -6,6 +6,7 @@ module eglv.sistemagerenciamentoacervos {
     requires javafx.base;
     requires javafx.graphics;
     //requires eglv.sistemagerenciamentoacervos;
+    //requires eglv.sistemagerenciamentoacervos;
 
     opens eglv.sistemagerenciamentoacervos to javafx.fxml;
     opens eglv.sistemagerenciamentoacervos.controller to javafx.fxml;

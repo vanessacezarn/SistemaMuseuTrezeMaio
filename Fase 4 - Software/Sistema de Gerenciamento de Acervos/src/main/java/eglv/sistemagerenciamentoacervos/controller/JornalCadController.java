@@ -15,20 +15,17 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 //import java.awt.*;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Files;
 import java.sql.SQLException;
 
-public class JornalController {
+public class JornalCadController {
+    private final JornalDAO jdao = new JornalDAO();
+
     //EDITORA
     @FXML
     private TableView<Editora> tblEditora;
@@ -88,7 +85,7 @@ public class JornalController {
     // EDITORA
     private void carregarEditoras() {
         try {
-            listaOriginal.setAll(Edao.listarNome());
+            listaOriginal.setAll(Edao.listar());
             listaFiltrada = new FilteredList<>(listaOriginal, p -> true);
             tblEditora.setItems(listaFiltrada);
         } catch (SQLException e) {
@@ -185,14 +182,15 @@ public class JornalController {
     @FXML private TextField txtIdioma;
     @FXML private TextField txtTitulo;
     @FXML private TextField txtSubtitulo;
+    @FXML private Button btnSalvar;
 
     @FXML
-    private void salvarJornal() {
+    private void btnSalvar() {
         try {
             Editora editoraSelecionada = tblEditora.getSelectionModel().getSelectedItem();
 
             Jornal j = new Jornal();
-            j.setCodigo_jornal(Integer.parseInt(txtCodigo.getText()));
+            j.setCodigo_jornal(txtCodigo.getText());
             j.setPais(txtPais.getText());
             j.setEstado(txtEstado.getText());
             j.setCidade(txtCidade.getText());
@@ -214,12 +212,17 @@ public class JornalController {
             j.getColaboradores().addAll(tblColaborador.getSelectionModel().getSelectedItems());
 
             // DAO
-            JornalDAO dao = new JornalDAO();
-            dao.inserir(j); // insere o jornal e pega o id gerado
+            //private final JornalDAO dao = new JornalDAO();
+            //dao.inserir(j); // insere o jornal e pega o id gerado
+
+            jdao.inserir(j);
 
             // Inserir relações N:N
-            dao.inserirAssuntos(j);
-            dao.inserirColaboradores(j);
+            //dao.inserirAssuntos(j);
+            //dao.inserirColaboradores(j);
+
+            jdao.inserirAssuntos(j);
+            jdao.inserirColaboradores(j);
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Sucesso");

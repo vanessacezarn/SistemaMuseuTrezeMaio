@@ -29,15 +29,11 @@ public class HelloApplication extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/ColaboradorEditarView.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/ColaboradorExcluirView.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/ColaboradorListarView.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 620,760);
 
         //JORNAL
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalCadView.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load(), 937,650);
-
-        //stage.setTitle("ACERVO MUSEU TREZE MAIO ");
-        //stage.setScene(scene);
-        //stage.show();
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalEditarView.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalCadView.fxml"));
 
         // LIVRO
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/LivroCadView.fxml"));
@@ -56,34 +52,3 @@ public class HelloApplication extends Application {
         launch();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

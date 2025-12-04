@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.JornalController">
+<AnchorPane prefHeight="650.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.JornalCadController">
    <children>
       <Label layoutX="120.0" layoutY="30.0" text="CADASTRO DE JORNAL">
          <font>
@@ -133,6 +133,6 @@
          </columnResizePolicy>
       </TableView>
       <TextField fx:id="txtPesquisaColaborador" layoutX="709.0" layoutY="382.0" />
-      <Button fx:id="txtSalvar" layoutX="709.0" layoutY="333.0" mnemonicParsing="false" onAction="#salvarJornal" text="SALVAR" />
+      <Button fx:id="btnSalvar" layoutX="709.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR" />
    </children>
 </AnchorPane>

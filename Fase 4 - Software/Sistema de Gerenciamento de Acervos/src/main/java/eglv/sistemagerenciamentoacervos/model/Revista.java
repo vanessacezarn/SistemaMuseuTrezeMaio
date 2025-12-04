@@ -1,17 +1,15 @@
 package eglv.sistemagerenciamentoacervos.model;
 
-import java.sql.Blob;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class Jornal {
-    private Integer id_jornal;
-    private String codigo_jornal;
-    private String pais;
-    private String estado;
-    private String cidade;
-    private Date data;
+public class Revista {
+    private Integer id_revista;
+    private String codigo_revista;
+    private String periodicidade;
+    private Integer ano;
+    private Integer mes;
+    private String volume;
     private String localizacao_acervo;
     private String numero_paginas;
     private String edicao;
@@ -25,81 +23,55 @@ public class Jornal {
     private List<Colaborador> colaboradores = new ArrayList<>();
     private List<Assunto> assuntos = new ArrayList<>();
 
-    public Jornal() {
+    public Revista(){
     }
 
-    public Jornal(Integer id_jornal, String codigo_jornal, String pais, String estado, String cidade, Date data, String localizacao_acervo, String numero_paginas, String edicao, String idioma, String titulo, String subtitulo, Integer quantidade, byte[] capa, Editora editora) {
-        this.id_jornal = id_jornal;
-        this.codigo_jornal = codigo_jornal;
-        this.pais = pais;
-        this.estado = estado;
-        this.cidade = cidade;
-        this.data = data;
-        this.localizacao_acervo = localizacao_acervo;
-        this.numero_paginas = numero_paginas;
-        this.edicao = edicao;
-        this.idioma = idioma;
-        this.titulo = titulo;
-        this.subtitulo = subtitulo;
-        this.quantidade = quantidade;
-        this.capa = capa;
-        this.editora = editora;
+    public Integer getId_revista() {
+        return id_revista;
     }
 
-    public byte[] getCapa() {
-        return capa;
+    public void setId_revista(Integer id_revista) {
+        this.id_revista = id_revista;
     }
 
-    public void setCapa(byte[] capa) {
-        this.capa = capa;
+    public String getCodigo_revista() {
+        return codigo_revista;
     }
 
-    public Integer getId_jornal() {
-        return id_jornal;
+    public void setCodigo_revista(String codigo_revista) {
+        this.codigo_revista = codigo_revista;
     }
 
-    public void setId_jornal(Integer id_jornal) {
-        this.id_jornal = id_jornal;
+    public String getPeriodicidade() {
+        return periodicidade;
     }
 
-    public String getCodigo_jornal() {
-        return codigo_jornal;
+    public void setPeriodicidade(String periodicidade) {
+        this.periodicidade = periodicidade;
     }
 
-    public void setCodigo_jornal(String codigo_jornal) {
-        this.codigo_jornal = codigo_jornal;
+    public Integer getAno() {
+        return ano;
     }
 
-    public String getPais() {
-        return pais;
+    public void setAno(Integer ano) {
+        this.ano = ano;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
+    public Integer getMes() {
+        return mes;
     }
 
-    public String getEstado() {
-        return estado;
+    public void setMes(Integer mes) {
+        this.mes = mes;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public String getVolume() {
+        return volume;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setVolume(String volume) {
+        this.volume = volume;
     }
 
     public String getLocalizacao_acervo() {
@@ -158,6 +130,14 @@ public class Jornal {
         this.quantidade = quantidade;
     }
 
+    public byte[] getCapa() {
+        return capa;
+    }
+
+    public void setCapa(byte[] capa) {
+        this.capa = capa;
+    }
+
     public Editora getEditora() {
         return editora;
     }
@@ -166,12 +146,12 @@ public class Jornal {
         this.editora = editora;
     }
 
-    public List<Assunto> getAssuntos() {
-        return assuntos;
+    public Colaborador getColaboradorPrincipal() {
+        return colaboradorPrincipal;
     }
 
-    public void setAssuntos(List<Assunto> assuntos) {
-        this.assuntos = assuntos;
+    public void setColaboradorPrincipal(Colaborador colaboradorPrincipal) {
+        this.colaboradorPrincipal = colaboradorPrincipal;
     }
 
     public List<Colaborador> getColaboradores() {
@@ -180,5 +160,13 @@ public class Jornal {
 
     public void setColaboradores(List<Colaborador> colaboradores) {
         this.colaboradores = colaboradores;
+    }
+
+    public List<Assunto> getAssuntos() {
+        return assuntos;
+    }
+
+    public void setAssuntos(List<Assunto> assuntos) {
+        this.assuntos = assuntos;
     }
 }
