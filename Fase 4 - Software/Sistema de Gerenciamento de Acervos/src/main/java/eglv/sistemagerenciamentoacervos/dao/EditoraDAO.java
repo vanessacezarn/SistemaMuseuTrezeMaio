@@ -104,21 +104,8 @@ public class EditoraDAO {
         return lista;
     }
 
-    //para jornal controller
-    public List<Editora> listarNome() throws SQLException {
-        final String sql = "SELECT nome FROM dbo.editora ORDER BY nome DESC";
-        List<Editora> lista = new ArrayList<>();
-        try (Connection conn = DbConnector.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) lista.add(map(rs));
-        }
-        return lista;
-    }
-
     private Editora map(ResultSet rs) throws SQLException {
             Editora e = new Editora();
-
             // so le se existir no SELECT
             try {
                 e.setId_editora(rs.getInt("id_editora"));
@@ -132,6 +119,4 @@ public class EditoraDAO {
 
             return e;
     }
-
-
 }

@@ -23,10 +23,10 @@
             </font>
         </Label>
         <TextField fx:id="txtBusca" layoutX="279.0" layoutY="96.0" prefHeight="35.0" prefWidth="203.0" />
-        <TableView fx:id="tblEditoras" layoutX="23.0" layoutY="163.0" prefHeight="307.0" prefWidth="533.0">
+        <TableView fx:id="tblJornal" layoutX="23.0" layoutY="163.0" prefHeight="307.0" prefWidth="533.0">
             <columns>
-                <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="203.0" text="NOME" />
-                <TableColumn fx:id="colLocal" minWidth="-1.0" prefWidth="329.0" text="LOCALIZAÇÃO" />
+                <TableColumn fx:id="colCodigo" minWidth="0.0" prefWidth="187.0" text="CÓDIGO" />
+                <TableColumn fx:id="colTitulo" minWidth="-1.0" prefWidth="345.0" text="TÍTULO" />
             </columns>
         </TableView>
         <Label fx:id="lblEscolha" layoutX="81.0" layoutY="140.0" text="SELECIONE NA TABELA ABAIXO O JORNAL QUE DESEJA EDITAR." />
@@ -36,7 +36,7 @@
                 <Font size="16.0" />
             </font>
         </Label>
-        <Button fx:id="btnSair" layoutX="512.0" layoutY="17.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
+        <Button fx:id="btnSair" layoutX="487.0" layoutY="18.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
       <Label layoutX="603.0" layoutY="107.0" text="CÓDIGO:" AnchorPane.leftAnchor="603.0">
          <font>
             <Font size="18.0" />
@@ -109,7 +109,7 @@
       <TextField fx:id="txtIdioma" layoutX="930.0" layoutY="344.0" />
       <DatePicker fx:id="dateData" layoutX="656.0" layoutY="175.0" />
       <Button fx:id="btnCapa" layoutX="653.0" layoutY="383.0" mnemonicParsing="false" onAction="#selecionarCapa" text="SELECIONAR IMAGEM" />
-      <Button fx:id="txtEditar" layoutX="1020.0" layoutY="445.0" mnemonicParsing="false" onAction="#salvarJornal" text="SALVAR" />
+      <Button fx:id="txtEditar" layoutX="1004.0" layoutY="416.0" mnemonicParsing="false" onAction="#salvarJornal" text="EDITAR" />
       <Label layoutX="171.0" layoutY="492.0" text="EDITORA:">
          <font>
             <Font size="18.0" />
