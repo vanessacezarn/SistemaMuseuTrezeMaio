@@ -33,6 +33,9 @@ public class DbConnector {
     //public static final String USER = "luizaa";
     //public static final String PASS = "koda";
 
+    //acesso frazzon
+    public static final String USER = "sa";
+    public static final String PASS = "zoe";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
