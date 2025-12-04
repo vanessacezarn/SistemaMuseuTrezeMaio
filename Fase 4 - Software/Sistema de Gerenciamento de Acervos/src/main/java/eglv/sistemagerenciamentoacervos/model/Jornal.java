@@ -1,7 +1,9 @@
 package eglv.sistemagerenciamentoacervos.model;
 
 import java.sql.Blob;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Jornal {
     private Integer id_jornal;
@@ -17,31 +19,22 @@ public class Jornal {
     private String titulo;
     private String subtitulo;
     private Integer quantidade;
-    //private Blob capa; ??
+    private byte[] capa;
     private Editora editora;
+    private Colaborador colaboradorPrincipal;
+    private List<Colaborador> colaboradores = new ArrayList<>();
+    private List<Assunto> assuntos = new ArrayList<>();
 
     public Jornal() {
     }
 
-    /*
-    public Jornal(Integer id_jornal, Integer codigo_jornal, String pais, String estado, String cidade, Date data, String localizacao_acervo, String numero_paginas, String edicao, String idioma, String titulo, Integer quantidade, String subtitulo, Blob capa, Editora editora) {
-        this.id_jornal = id_jornal;
-        this.codigo_jornal = codigo_jornal;
-        this.pais = pais;
-        this.estado = estado;
-        this.cidade = cidade;
-        this.data = data;
-        this.localizacao_acervo = localizacao_acervo;
-        this.numero_paginas = numero_paginas;
-        this.edicao = edicao;
-        this.idioma = idioma;
-        this.titulo = titulo;
-        this.quantidade = quantidade;
-        this.subtitulo = subtitulo;
-        this.capa = capa;
-        this.editora = editora;
+    public byte[] getCapa() {
+        return capa;
     }
-     */
+
+    public void setCapa(byte[] capa) {
+        this.capa = capa;
+    }
 
     public Integer getId_jornal() {
         return id_jornal;
@@ -147,21 +140,27 @@ public class Jornal {
         this.quantidade = quantidade;
     }
 
-    /*
-    public Blob getCapa() {
-        return capa;
-    }
-
-    public void setCapa(Blob capa) {
-        this.capa = capa;
-    }
-     */
-
     public Editora getEditora() {
         return editora;
     }
 
     public void setEditora(Editora editora) {
         this.editora = editora;
+    }
+
+    public List<Assunto> getAssuntos() {
+        return assuntos;
+    }
+
+    public void setAssuntos(List<Assunto> assuntos) {
+        this.assuntos = assuntos;
+    }
+
+    public List<Colaborador> getColaboradores() {
+        return colaboradores;
+    }
+
+    public void setColaboradores(List<Colaborador> colaboradores) {
+        this.colaboradores = colaboradores;
     }
 }
