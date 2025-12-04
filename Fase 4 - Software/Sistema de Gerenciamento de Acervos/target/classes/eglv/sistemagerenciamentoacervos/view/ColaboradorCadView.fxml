@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="338.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.ColaboradorController">
+   <children>
+      <Label fx:id="lblCadastro" layoutX="37.0" layoutY="14.0" text="CADASTRO DE COLABORADOR">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNome" layoutX="14.0" layoutY="72.0" text="NOME :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSobrenome" layoutX="14.0" layoutY="117.0" text="SOBRENOME :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNacionalidade" layoutX="14.0" layoutY="157.0" text="NACIONALIDADE :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTipo" layoutX="14.0" layoutY="200.0" text="TIPO :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtNome" layoutX="88.0" layoutY="71.0" prefHeight="30.0" prefWidth="366.0" />
+      <TextField fx:id="txtSobrenome" layoutX="137.0" layoutY="116.0" prefHeight="30.0" prefWidth="315.0" />
+      <TextField fx:id="txtNacionalidade" layoutX="169.0" layoutY="156.0" prefHeight="30.0" prefWidth="281.0" />
+      <ComboBox fx:id="cmbTipo" layoutX="76.0" layoutY="199.0" prefHeight="30.0" prefWidth="200.0" />
+      <Button fx:id="btnSalvar" layoutX="204.0" layoutY="259.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnSair" layoutX="424.0" layoutY="17.0" mnemonicParsing="false" onAction="#btnSair" text="SAIR" />
+   </children>
+</AnchorPane>
