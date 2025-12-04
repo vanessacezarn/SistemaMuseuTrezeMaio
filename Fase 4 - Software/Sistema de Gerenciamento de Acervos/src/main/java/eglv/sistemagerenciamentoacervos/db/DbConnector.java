@@ -27,9 +27,8 @@ public class DbConnector {
 
     public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
     //acesso  vanessa
-    //public static final String USER = "sa";
-    //public static final String PASS = "0113MA1404A";
-
+    public static final String USER = "sa";
+    public static final String PASS = "0113MA1404A";
     // acesso luiza
     //public static final String USER = "luizaa";
     //public static final String PASS = "koda";

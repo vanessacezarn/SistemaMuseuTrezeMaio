@@ -15,20 +15,17 @@ import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 //import java.awt.*;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Files;
 import java.sql.SQLException;
 
-public class JornalController {
+public class JornalCadController {
+    private final JornalDAO jdao = new JornalDAO();
+
     //EDITORA
     @FXML
     private TableView<Editora> tblEditora;
@@ -185,9 +182,10 @@ public class JornalController {
     @FXML private TextField txtIdioma;
     @FXML private TextField txtTitulo;
     @FXML private TextField txtSubtitulo;
+    @FXML private Button btnSalvar;
 
     @FXML
-    private void salvarJornal() {
+    private void btnSalvar() {
         try {
             Editora editoraSelecionada = tblEditora.getSelectionModel().getSelectedItem();
 
@@ -214,12 +212,17 @@ public class JornalController {
             j.getColaboradores().addAll(tblColaborador.getSelectionModel().getSelectedItems());
 
             // DAO
-            JornalDAO dao = new JornalDAO();
-            dao.inserir(j); // insere o jornal e pega o id gerado
+            //private final JornalDAO dao = new JornalDAO();
+            //dao.inserir(j); // insere o jornal e pega o id gerado
+
+            jdao.inserir(j);
 
             // Inserir relações N:N
-            dao.inserirAssuntos(j);
-            dao.inserirColaboradores(j);
+            //dao.inserirAssuntos(j);
+            //dao.inserirColaboradores(j);
+
+            jdao.inserirAssuntos(j);
+            jdao.inserirColaboradores(j);
 
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Sucesso");
