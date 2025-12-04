@@ -25,20 +25,19 @@ import java.sql.SQLException;
 
 public class DbConnector {
 
-    /*
+
     public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
-    public static final String USER = "sa";  // ou outro usuário
+    //acesso  vanessa
+    public static final String USER = "sa";
     public static final String PASS = "0113MA1404A";
-
-    public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASS);
-    }
-     */
-    public static final String URL ="jdbc:sqlserver://localhost:1433;databaseName=ACERVO_TREZE_MAIO;encrypt=false";
-    public static final String USER = "luizaa";  // ou outro usuário
+    // acesso luiza
+    /*
+    public static final String USER = "luizaa";
     public static final String PASS = "koda";
+    */
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
     }
+
 }

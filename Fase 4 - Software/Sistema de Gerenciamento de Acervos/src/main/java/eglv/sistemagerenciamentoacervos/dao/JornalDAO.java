@@ -8,6 +8,7 @@ import eglv.sistemagerenciamentoacervos.model.Jornal;
 import java.sql.*;
 
 public class JornalDAO {
+
     public void inserir(Jornal j) throws SQLException {
         final String sql = "INSERT INTO dbo.jornal " +
                 "(codigo_jornal, pais, estado, cidade, data, localizacao_acervo, numero_paginas," +
@@ -16,7 +17,7 @@ public class JornalDAO {
 
         try (Connection conn = DbConnector.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, j.getCodigo_jornal());
+            ps.setString(1, j.getCodigo_jornal());
             ps.setString(2, j.getPais());
             ps.setString(3, j.getEstado());
             ps.setString(4, j.getCidade());

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Jornal {
     private Integer id_jornal;
-    private Integer codigo_jornal;
+    private String codigo_jornal;
     private String pais;
     private String estado;
     private String cidade;
@@ -44,11 +44,11 @@ public class Jornal {
         this.id_jornal = id_jornal;
     }
 
-    public Integer getCodigo_jornal() {
+    public String getCodigo_jornal() {
         return codigo_jornal;
     }
 
-    public void setCodigo_jornal(Integer codigo_jornal) {
+    public void setCodigo_jornal(String codigo_jornal) {
         this.codigo_jornal = codigo_jornal;
     }
 
