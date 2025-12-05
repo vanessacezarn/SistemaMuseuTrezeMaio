@@ -2,37 +2,52 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25"
+<AnchorPane prefHeight="600.0" prefWidth="772.0"
+            xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="eglv.sistemagerenciamentoacervos.controller.LivroListarController">
 
     <children>
-        <VBox spacing="12">
-            <padding>
-                <Insets top="10" right="10" bottom="10" left="10"/>
-            </padding>
+        <!-- VBox centralizado dentro do AnchorPane -->
+        <VBox spacing="10"
+              AnchorPane.topAnchor="20.0"
+              AnchorPane.leftAnchor="20.0"
+              AnchorPane.rightAnchor="20.0"
+              AnchorPane.bottomAnchor="20.0"
+              style="-fx-padding: 20;">
 
-            <!-- Campo de busca -->
+            <!-- Título -->
+            <Label text="LIVROS CADASTRADOS NO ACERVO"
+                   AnchorPane.topAnchor="20.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0"
+                   alignment="CENTER">
+                <font><Font name="System Bold" size="24.0"/></font>
+            </Label>
+
+            <!-- Linha de filtros -->
             <HBox spacing="10">
-                <children>
-                    <Label text="Buscar por:"/>
-                    <ComboBox fx:id="cbCampoBusca" prefWidth="150"/>
-                    <TextField fx:id="txtBusca" promptText="Digite para filtrar..."/>
-                </children>
+                <Label text="Pesquisar por:"/>
+                <ComboBox fx:id="cmbFiltroCampo" prefWidth="150"/>
+                <TextField fx:id="txtFiltroValor" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnSair" text="SAIR" onAction="#btnSair"/>
             </HBox>
 
-            <!-- Tabela -->
-            <TableView fx:id="tblLivros" prefHeight="400">
+            <!-- Tabela ocupa todo o espaço restante -->
+            <TableView fx:id="tblLivros" VBox.vgrow="ALWAYS">
                 <columns>
-                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
-                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
-                    <TableColumn fx:id="colISBN" text="ISBN" prefWidth="150"/>
-                    <TableColumn fx:id="colEditora" text="Editora" prefWidth="150"/>
-                    <TableColumn fx:id="colAno" text="Ano" prefWidth="80"/>
+                    <TableColumn fx:id="colCodigo" text="CÓDIGO" prefWidth="122"/>
+                    <TableColumn fx:id="colTitulo" text="TÍTULO" prefWidth="122"/>
+                    <TableColumn fx:id="colISBN" text="ISBN" prefWidth="122"/>
+                    <TableColumn fx:id="colAno" text="ANO" prefWidth="122"/>
+                    <TableColumn fx:id="colEditora" text="EDITORA" prefWidth="122"/>
+                    <TableColumn fx:id="colAssuntos" text="ASSUNTOS" prefWidth="122"/>
+                    <TableColumn fx:id="colColaboradores" text="COLABORADORES" prefWidth="122"/>
                 </columns>
             </TableView>
+
         </VBox>
     </children>
 </AnchorPane>

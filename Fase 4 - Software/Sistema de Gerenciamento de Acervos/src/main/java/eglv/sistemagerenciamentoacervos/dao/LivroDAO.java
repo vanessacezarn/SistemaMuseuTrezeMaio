@@ -231,4 +231,124 @@ public class LivroDAO {
         l.setCapa(rs.getBytes("capa"));
         return l;
     }
+
+    public List<Livro> listarTodosComEditora() throws SQLException {
+        final String sql = "SELECT l.*, e.id_editora, e.nome AS nome_editora " +
+                "FROM livro l " +
+                "LEFT JOIN editora e ON l.fk_editora_id_editora = e.id_editora";
+        List<Livro> list = new ArrayList<>();
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Livro l = mapResultSetToLivro(rs);
+
+                if (rs.getInt("id_editora") != 0) {
+                    eglv.sistemagerenciamentoacervos.model.Editora ed = new eglv.sistemagerenciamentoacervos.model.Editora();
+                    ed.setId_editora(rs.getInt("id_editora"));
+                    ed.setNome(rs.getString("nome_editora"));
+                    l.setEditora(ed);
+                }
+
+                list.add(l);
+            }
+        }
+        return list;
+    }
+
+    public List<Livro> listarTodosComAssuntos() throws SQLException {
+        List<Livro> livros = listarTodos(); // usa o método básico
+        try (Connection conn = DbConnector.getConnection()) {
+            for (Livro l : livros) {
+                final String sql = "SELECT a.* FROM assunto a " +
+                        "JOIN item_assunto ia ON ia.fk_assunto_id_assunto = a.id_assunto " +
+                        "WHERE ia.fk_livro_id_livro = ?";
+                try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                    ps.setInt(1, l.getId_livro());
+                    try (ResultSet rs = ps.executeQuery()) {
+                        List<Assunto> assuntos = new ArrayList<>();
+                        while (rs.next()) {
+                            Assunto a = new Assunto();
+                            a.setId_assunto(rs.getInt("id_assunto"));
+                            a.setDescricao(rs.getString("descricao"));
+                            assuntos.add(a);
+                        }
+                        l.setAssuntos(assuntos);
+                    }
+                }
+            }
+        }
+        return livros;
+    }
+
+    public List<Livro> listarTodosComColaboradores() throws SQLException {
+        List<Livro> livros = listarTodos(); // usa o método básico
+        try (Connection conn = DbConnector.getConnection()) {
+            for (Livro l : livros) {
+                final String sql = "SELECT c.* FROM colaborador c " +
+                        "JOIN item_colaborador ic ON ic.fk_colaborador_id_colaborador = c.id_colaborador " +
+                        "WHERE ic.fk_livro_id_livro = ?";
+                try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                    ps.setInt(1, l.getId_livro());
+                    try (ResultSet rs = ps.executeQuery()) {
+                        List<Colaborador> colaboradores = new ArrayList<>();
+                        while (rs.next()) {
+                            Colaborador c = new Colaborador();
+                            c.setId_colaborador(rs.getInt("id_colaborador"));
+                            c.setNome(rs.getString("nome"));
+                            c.setSobrenome(rs.getString("sobrenome"));
+                            colaboradores.add(c);
+                        }
+                        l.setColaboradores(colaboradores);
+                    }
+                }
+            }
+        }
+        return livros;
+    }
+
+    public List<Livro> listarTodosCompleto() throws SQLException {
+        List<Livro> livros = listarTodosComEditora();
+        try (Connection conn = DbConnector.getConnection()) {
+            for (Livro l : livros) {
+                // Assuntos
+                final String sqlAssunto = "SELECT a.* FROM assunto a " +
+                        "JOIN item_assunto ia ON ia.fk_assunto_id_assunto = a.id_assunto " +
+                        "WHERE ia.fk_livro_id_livro = ?";
+                try (PreparedStatement ps = conn.prepareStatement(sqlAssunto)) {
+                    ps.setInt(1, l.getId_livro());
+                    try (ResultSet rs = ps.executeQuery()) {
+                        List<Assunto> assuntos = new ArrayList<>();
+                        while (rs.next()) {
+                            Assunto a = new Assunto();
+                            a.setId_assunto(rs.getInt("id_assunto"));
+                            a.setDescricao(rs.getString("descricao"));
+                            assuntos.add(a);
+                        }
+                        l.setAssuntos(assuntos);
+                    }
+                }
+
+                // Colaboradores
+                final String sqlColab = "SELECT c.* FROM colaborador c " +
+                        "JOIN item_colaborador ic ON ic.fk_colaborador_id_colaborador = c.id_colaborador " +
+                        "WHERE ic.fk_livro_id_livro = ?";
+                try (PreparedStatement ps = conn.prepareStatement(sqlColab)) {
+                    ps.setInt(1, l.getId_livro());
+                    try (ResultSet rs = ps.executeQuery()) {
+                        List<Colaborador> colaboradores = new ArrayList<>();
+                        while (rs.next()) {
+                            Colaborador c = new Colaborador();
+                            c.setId_colaborador(rs.getInt("id_colaborador"));
+                            c.setNome(rs.getString("nome"));
+                            colaboradores.add(c);
+                        }
+                        l.setColaboradores(colaboradores);
+                    }
+                }
+            }
+        }
+        return livros;
+    }
+
 }
