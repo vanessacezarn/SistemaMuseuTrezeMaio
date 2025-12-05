@@ -31,8 +31,8 @@ public class HelloApplication extends Application {
         //JORNAL
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalCadView.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalEditarView.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalExcluirView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 937,650);
+        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/JornalExcluirView.fxml"));
+        //Scene scene = new Scene(fxmlLoader.load(), 937,650);
 
         // LIVRO
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/LivroCadView.fxml"));
