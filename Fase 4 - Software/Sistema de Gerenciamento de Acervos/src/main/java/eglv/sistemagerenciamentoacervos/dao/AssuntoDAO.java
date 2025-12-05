@@ -74,4 +74,27 @@ public class AssuntoDAO {
                 rs.getString("descricao")
         );
     }
+
+    public List<Assunto> listarAssuntos() {
+        List<Assunto> lista = new ArrayList<>();
+
+        String sql = "SELECT id_assunto, descricao FROM assunto ORDER BY descricao";
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Assunto a = new Assunto();
+                a.setId_assunto(rs.getInt("id_assunto"));
+                a.setDescricao(rs.getString("descricao"));
+                lista.add(a);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return lista;
+    }
+
 }

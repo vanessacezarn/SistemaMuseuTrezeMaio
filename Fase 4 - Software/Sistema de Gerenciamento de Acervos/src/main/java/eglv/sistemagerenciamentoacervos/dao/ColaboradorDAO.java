@@ -152,4 +152,30 @@ public class ColaboradorDAO {
                 rs.getString("tipo")
         );
     }
+
+    public List<Colaborador> listarColaboradores() {
+        List<Colaborador> lista = new ArrayList<>();
+
+        String sql = "SELECT id_colaborador, nome, sobrenome, nacionalidade, tipo FROM colaborador ORDER BY nome";
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Colaborador c = new Colaborador();
+                c.setId_colaborador(rs.getInt("id_colaborador"));
+                c.setNome(rs.getString("nome"));
+                c.setSobrenome(rs.getString("sobrenome"));
+                c.setNacionalidade(rs.getString("nacionalidade"));
+                c.setTipo(rs.getString("tipo"));
+                lista.add(c);
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return lista;
+    }
+
 }

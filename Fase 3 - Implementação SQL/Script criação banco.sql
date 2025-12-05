@@ -30,8 +30,10 @@ CREATE TABLE Usuario (
     email VARCHAR(100) UNIQUE,
     telefone VARCHAR(20),
     tipo VARCHAR(20) NOT NULL,
-    -- senha ?
 );
+ALTER TABLE usuario
+ADD senha VARCHAR(255) NOT NULL;
+
 
 -- TABELA EDITORA
 CREATE TABLE editora (

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="eglv.sistemagerenciamentoacervos.controller.LivroListarController">
+
+    <children>
+        <VBox spacing="12">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Campo de busca -->
+            <HBox spacing="10">
+                <children>
+                    <Label text="Buscar por:"/>
+                    <ComboBox fx:id="cbCampoBusca" prefWidth="150"/>
+                    <TextField fx:id="txtBusca" promptText="Digite para filtrar..."/>
+                </children>
+            </HBox>
+
+            <!-- Tabela -->
+            <TableView fx:id="tblLivros" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+                    <TableColumn fx:id="colISBN" text="ISBN" prefWidth="150"/>
+                    <TableColumn fx:id="colEditora" text="Editora" prefWidth="150"/>
+                    <TableColumn fx:id="colAno" text="Ano" prefWidth="80"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
