@@ -35,8 +35,8 @@ public class DbConnector {
     //public static final String PASS = "koda";
 
     // Acesso Frazzon
-    //public static final String USER = "sa";
-    //public static final String PASS = "zoe";
+    public static final String USER = "sa";
+    public static final String PASS = "zoe";
 
     // Acesso Éric
     //public static final String USER = "sa";  // ou outro usuário
