@@ -43,7 +43,9 @@ VALUES ('LN19821', 'Lugar de Negro', NULL, '9788571108008', 1982, 'EA1', '128', 
        ('BN2021', 'Beatriz Nascimento: O Negro e o Feminino', NULL, '9786559210387', 2021, 'EA3', '320', '1ª', 'Português', 3, 31),
        ('QIPE2018', 'Quilombola e Intelectual', 'Possibilidades nos Estudos da História', '9788582171583', 2018, 'EA3', '256', '1ª', 'Português', 2, 27),
        ('QD14960', 'Quarto de Despejo', 'Diário de uma Favelada', '9788535909551', 1960, 'EB1', '200', '10ª', 'Português', 5, 28),
-       ('CADE1961', 'Casa de Alvenaria', 'Diário de uma Ex-Favelada', '9788535924035', 1961, 'EB1', '224', '1ª', 'Português', 4,27);
+       ('CADE1961', 'Casa de Alvenaria', 'Diário de uma Ex-Favelada', '9788535924035', 1961, 'EB1', '224', '1ª', 'Português', 4,27),
+       ('AFR1992', 'Afro-Brasil: História e Resistência', NULL, '9788573261189', 1992, 'EA4', '210', '1ª', 'Português', 3, 29),
+       ('DJN2005', 'Diáspora Negra', 'Tradições e Identidades Globais', '9788575224557', 2005, 'EA5', '280', '1ª', 'Português', 4, 30);
 
 
 INSERT INTO jornal (codigo_jornal,pais,estado,cidade,data,localizacao_acervo,numero_paginas,edicao,idioma,titulo,subtitulo, quantidade,fk_editora_id_editora)
@@ -51,14 +53,26 @@ VALUES('JB75', 'BR', 'RJ', 'Rio de Janeiro', '1975-05-12', 'AJ1', '32', '14532',
       ('FSP87', 'BR', 'SP', 'São Paulo', '1985-03-20', 'AJ2', '40', '15987', 'Português', 'Folha de S.Paulo', 'Economia e Atualidades', 4, 28),
       ('TNYT23', 'EUA', 'NY', 'New York', '1990-10-01', 'AJ3', '48', ' 23015', 'Inglês', 'The New York Times', 'World News Highlights', 2, 29),
       ('TGW01', 'RU', NULL, 'London', '2001-04-15', 'AJ4', '56', 'International', 'Inglês', 'The Guardian Weekly', 'Global Reports & Features', 2, 30),
-      ('CP98', 'BR', 'RS', 'Porto Alegre', '1978-09-08', 'AJ5', '28', '9870', 'Português', 'Correio do Povo', 'Caderno de Cultura e Sociedade', 3, 31);
+      ('CP98', 'BR', 'RS', 'Porto Alegre', '1978-09-08', 'AJ5', '28', '9870', 'Português', 'Correio do Povo', 'Caderno de Cultura e Sociedade', 3, 31),
+      ('BZ82', 'BR', 'MG', 'Belo Horizonte', '1982-08-15', 'AJ6', '36', '8743', 'Português', 'Estado de Minas', 'Sociedade & Cultura', 3, 27),
+      ('OP90', 'BR', 'PE', 'Recife', '1990-11-02', 'AJ7', '42', '2219', 'Português', 'O Povo', 'Edição Especial Cultura Negra', 4, 28),
+      ('WSJ94', 'EUA', 'CA', 'Los Angeles', '1994-02-14', 'AJ8', '50', 'Global', 'Inglês', 'The Wall Street Journal', 'International Economic Review', 2, 29),
+      ('LM83', 'FR', NULL, 'Paris', '1983-09-21', 'AJ9', '44', 'Europe', 'Francês', 'Le Monde', 'Analyse Politique Internationale', 3, 30),
+      ('DN88', 'BR', 'RS', 'Santa Maria', '1988-06-10', 'AJ10', '30', '7881', 'Português', 'Diário de Notícias', 'Cultura e Sociedade', 3, 31);
+
 
 INSERT INTO revista (codigo_revista, volume, periodicidade, mes,ano,localizacao_acervo,numero_paginas,edicao,idioma,titulo,subtitulo,quantidade,fk_editora_id_editora)
 VALUES ('RB02', '12', 'Mensal', 5, 2002, 'ER1', '80', 'Edição 12', 'Português', 'Raça Brasil', 'Histórias e Cultura Afro-Brasileira', 4, 27),
        ('NG99', '50', 'Mensal', 8, 1999, 'ER2', '120', 'Volume 50', 'Inglês', 'National Geographic', 'África: História, Povos e Territórios', 3, 28),
        ('EB87', '22', 'Mensal', 11, 1987, 'ER3', '96', 'Issue 22', 'Inglês','Ebony', 'Black Culture & Lifestyle', 2, 29),
        ('EAA95', '15', 'Trimestral', 3, 1995, 'ER4', '110', 'Volume 15', 'Português', 'Estudos Afro-Asiáticos', 'Pesquisas sobre África e Diáspora', 3, 30),
-       ('HV08', '9', 'Bimestral', 10, 2008, 'ER5', '88', 'Edição 9', 'Português', 'História Viva', 'Especial África e Cultura Negra', 5, 31);
+       ('HV08', '9', 'Bimestral', 10, 2008, 'ER5', '88', 'Edição 9', 'Português', 'História Viva', 'Especial África e Cultura Negra', 5, 31),
+       ('AFR01', '10', 'Mensal', 4, 2001, 'ER6', '92', 'Volume 10', 'Português', 'África Hoje', 'Cultura e Identidades Africanas', 4, 27),
+       ('CN06', '8', 'Bimestral', 6, 2006, 'ER7', '110', 'Edição 8', 'Português', 'Cadernos Negros', 'Produção Literária Negra Brasileira', 5, 28),
+       ('BS12', '14', 'Mensal', 1, 2012, 'ER8', '98', 'Issue 14', 'Inglês', 'Black Scholar', 'Perspectives on Black Studies', 3, 29),
+       ('ASA03', '7', 'Trimestral', 9, 2003, 'ER9', '105', 'Volume 7', 'Português', 'África & Sociedade', 'Pesquisa e Identidade Cultural', 4, 30),
+       ('HV13', '11', 'Mensal', 12, 2013, 'ER10', '120', 'Edição 11', 'Português', 'História Viva Especial', 'Grandes Civilizações Africanas', 5, 31);
+
 
 INSERT INTO exemplar (codigo, fk_jornal_id_jornal, fk_revista_id_revista, fk_livro_id_livro)
 VALUES
