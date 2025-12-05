@@ -36,80 +36,80 @@
                 <Font size="16.0" />
             </font>
         </Label>
-        <Button fx:id="btnSair" layoutX="487.0" layoutY="18.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
-      <Label layoutX="603.0" layoutY="107.0" text="CÓDIGO:" AnchorPane.leftAnchor="603.0">
+        <Button fx:id="btnSair" layoutX="482.0" layoutY="36.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
+      <Label layoutX="587.0" layoutY="220.0" text="CÓDIGO:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="141.0" text="PAÍS:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="587.0" layoutY="254.0" text="PAÍS:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="764.0" layoutY="141.0" text="ESTADO:">
+      <Label layoutX="748.0" layoutY="254.0" text="ESTADO:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="909.0" layoutY="141.0" text="CIDADE:">
+      <Label layoutX="893.0" layoutY="254.0" text="CIDADE:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="174.0" text="DATA:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="587.0" layoutY="287.0" text="DATA:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="212.0" text="LOCALIZAÇÃO NO ACERVO:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="587.0" layoutY="325.0" text="LOCALIZAÇÃO NO ACERVO:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="245.0" text="NÚMERO DE PÁGINAS:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="587.0" layoutY="358.0" text="NÚMERO DE PÁGINAS:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="342.0" prefHeight="27.0" prefWidth="68.0" text="EDIÇÃO:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="595.0" layoutY="396.0" prefHeight="27.0" prefWidth="68.0" text="EDIÇÃO:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="850.0" layoutY="342.0" text="IDIOMA:">
+      <Label layoutX="842.0" layoutY="396.0" text="IDIOMA:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="282.0" text="TÍTULO:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="584.0" layoutY="149.0" text="TÍTULO:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="603.0" layoutY="315.0" text="SUBTÍTULO:" AnchorPane.leftAnchor="603.0">
+      <Label layoutX="584.0" layoutY="182.0" text="SUBTÍTULO:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="382.0" text="CAPA:" AnchorPane.leftAnchor="598.0">
+      <Label layoutX="590.0" layoutY="436.0" text="CAPA:" AnchorPane.leftAnchor="587.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCodigo" layoutX="679.0" layoutY="108.0" />
-      <TextField fx:id="txtPais" layoutX="646.0" layoutY="142.0" prefHeight="25.0" prefWidth="104.0" />
-      <TextField fx:id="txtEstado" layoutX="834.0" layoutY="142.0" prefHeight="25.0" prefWidth="62.0" />
-      <TextField fx:id="txtCidade" layoutX="984.0" layoutY="139.0" prefHeight="25.0" prefWidth="125.0" />
-      <TextField fx:id="txtLocalizacao" layoutX="835.0" layoutY="213.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtPaginas" layoutX="791.0" layoutY="246.0" prefHeight="25.0" prefWidth="125.0" />
-      <TextField fx:id="txtTitulo" layoutX="665.0" layoutY="283.0" prefHeight="25.0" prefWidth="438.0" />
-      <TextField fx:id="txtSubtitulo" layoutX="709.0" layoutY="316.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField fx:id="txtEdicao" layoutX="679.0" layoutY="344.0" />
-      <TextField fx:id="txtIdioma" layoutX="930.0" layoutY="344.0" />
-      <DatePicker fx:id="dateData" layoutX="656.0" layoutY="175.0" />
-      <Button fx:id="btnCapa" layoutX="653.0" layoutY="383.0" mnemonicParsing="false" onAction="#selecionarCapa" text="SELECIONAR IMAGEM" />
-      <Button fx:id="txtEditar" layoutX="1004.0" layoutY="416.0" mnemonicParsing="false" onAction="#salvarJornal" text="EDITAR" />
+      <TextField fx:id="txtCodigo" layoutX="663.0" layoutY="221.0" prefHeight="25.0" prefWidth="421.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtPais" layoutX="630.0" layoutY="255.0" prefHeight="25.0" prefWidth="104.0" />
+      <TextField fx:id="txtEstado" layoutX="818.0" layoutY="255.0" prefHeight="25.0" prefWidth="62.0" />
+      <TextField fx:id="txtCidade" layoutX="968.0" layoutY="252.0" prefHeight="25.0" prefWidth="113.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtLocalizacao" layoutX="819.0" layoutY="326.0" prefHeight="25.0" prefWidth="255.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtPaginas" layoutX="775.0" layoutY="359.0" prefHeight="25.0" prefWidth="301.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtTitulo" layoutX="646.0" layoutY="150.0" prefHeight="25.0" prefWidth="438.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtSubtitulo" layoutX="690.0" layoutY="183.0" prefHeight="25.0" prefWidth="392.0" AnchorPane.rightAnchor="39.0" />
+      <TextField fx:id="txtEdicao" layoutX="671.0" layoutY="398.0" />
+      <TextField fx:id="txtIdioma" layoutX="922.0" layoutY="398.0" AnchorPane.rightAnchor="39.0" />
+      <DatePicker fx:id="dateData" layoutX="640.0" layoutY="288.0" />
+      <Button fx:id="btnCapa" layoutX="645.0" layoutY="437.0" mnemonicParsing="false" onAction="#selecionarCapa" text="SELECIONAR IMAGEM" />
+      <Button fx:id="btnEditar" layoutX="1018.0" layoutY="438.0" mnemonicParsing="false" onAction="#btnEditar" text="EDITAR" />
       <Label layoutX="171.0" layoutY="492.0" text="EDITORA:">
          <font>
             <Font size="18.0" />

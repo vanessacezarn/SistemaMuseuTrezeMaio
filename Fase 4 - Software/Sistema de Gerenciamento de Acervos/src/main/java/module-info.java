@@ -8,9 +8,12 @@ module eglv.sistemagerenciamentoacervos {
     //requires eglv.sistemagerenciamentoacervos;
     //requires eglv.sistemagerenciamentoacervos;
     //requires eglv.sistemagerenciamentoacervos;
+    //requires eglv.sistemagerenciamentoacervos;
 
     opens eglv.sistemagerenciamentoacervos to javafx.fxml;
     opens eglv.sistemagerenciamentoacervos.controller to javafx.fxml;
+    opens eglv.sistemagerenciamentoacervos.model to javafx.base;
 
     exports eglv.sistemagerenciamentoacervos;
+
 }

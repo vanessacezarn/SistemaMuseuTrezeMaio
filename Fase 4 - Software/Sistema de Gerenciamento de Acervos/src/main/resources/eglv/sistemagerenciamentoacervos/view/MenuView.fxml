@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="eglv.sistemagerenciamentoacervos.controller.MenuController">
+
+    <!-- Menu superior -->
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu text="Cadastros">
+                    <items>
+                        <MenuItem text="Assuntos" onAction="#cadastrarAssuntos"/>
+                        <MenuItem text="Colaboradores" onAction="#cadastrarColaboradores"/>
+                        <MenuItem text="Editoras" onAction="#cadastrarEditoras"/>
+                        <MenuItem text="Exemplar" onAction="#cadastrarExemplares"/>
+                        <MenuItem text="Jornais" onAction="#cadastrarJornais"/>
+                        <MenuItem text="Livros" onAction="#cadastrarLivros"/>
+                        <MenuItem text="Revistas" onAction="#cadastrarRevistas"/>
+                    </items>
+                </Menu>
+                <Menu text="Listar">
+                    <items>
+                        <MenuItem text="Assuntos" onAction="#listarAssuntos"/>
+                        <MenuItem text="Colaboradores" onAction="#listarColaboradores"/>
+                        <MenuItem text="Editoras" onAction="#listarEditoras"/>
+                        <MenuItem text="Exemplar" onAction="#listarExemplares"/>
+                        <MenuItem text="Jornais" onAction="#listarJornais"/>
+                        <MenuItem text="Livros" onAction="#listarLivros"/>
+                        <MenuItem text="Revistas" onAction="#listarRevistas"/>
+                    </items>
+                </Menu>
+                <Menu text="Editar">
+                    <items>
+                        <MenuItem text="Assuntos" onAction="#editarAssuntos"/>
+                        <MenuItem text="Colaboradores" onAction="#editarColaboradores"/>
+                        <MenuItem text="Editoras" onAction="#editarEditoras"/>
+                        <MenuItem text="Exemplar" onAction="#editarExemplares"/>
+                        <MenuItem text="Jornais" onAction="#editarJornais"/>
+                        <MenuItem text="Livros" onAction="#editarLivros"/>
+                        <MenuItem text="Revistas" onAction="#editarRevistas"/>
+                    </items>
+                </Menu>
+                <Menu text="Excluir">
+                    <items>
+                        <MenuItem text="Assuntos" onAction="#excluirAssuntos"/>
+                        <MenuItem text="Colaboradores" onAction="#excluirColaboradores"/>
+                        <MenuItem text="Editoras" onAction="#excluirEditoras"/>
+                        <MenuItem text="Exemplar" onAction="#excluirExemplares"/>
+                        <MenuItem text="Jornais" onAction="#excluirJornais"/>
+                        <MenuItem text="Livros" onAction="#excluirLivros"/>
+                        <MenuItem text="Revistas" onAction="#excluirRevistas"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+
+    <!-- Área central que será trocada -->
+    <center>
+        <Label text="Bem-vindo ao Sistema de Gerenciamento de Acervos"
+               style="-fx-font-size: 18; -fx-font-weight: bold;"
+               BorderPane.alignment="CENTER"/>
+    </center>
+</BorderPane>
+

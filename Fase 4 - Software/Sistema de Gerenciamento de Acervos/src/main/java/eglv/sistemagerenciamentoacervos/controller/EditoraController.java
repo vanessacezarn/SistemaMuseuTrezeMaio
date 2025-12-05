@@ -44,7 +44,6 @@ public class EditoraController {
     private final EditoraDAO dao = new EditoraDAO();
     private final ObservableList<Editora> dados = FXCollections.observableArrayList();
 
-
     private void preencherFormulario(Editora e) {
         if (e == null) return;
         limpar();
