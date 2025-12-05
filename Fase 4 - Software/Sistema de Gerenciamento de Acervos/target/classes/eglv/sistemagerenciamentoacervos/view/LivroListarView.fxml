@@ -19,11 +19,7 @@
               style="-fx-padding: 20;">
 
             <!-- Título -->
-            <Label text="LIVROS CADASTRADOS NO ACERVO"
-                   AnchorPane.topAnchor="20.0"
-                   AnchorPane.leftAnchor="0.0"
-                   AnchorPane.rightAnchor="0.0"
-                   alignment="CENTER">
+            <Label text="LIVROS CADASTRADOS NO ACERVO" alignment="CENTER">
                 <font><Font name="System Bold" size="24.0"/></font>
             </Label>
 
