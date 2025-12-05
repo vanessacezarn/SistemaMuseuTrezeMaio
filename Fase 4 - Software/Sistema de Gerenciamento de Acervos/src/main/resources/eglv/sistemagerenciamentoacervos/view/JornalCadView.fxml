@@ -9,70 +9,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.JornalCadController">
+<AnchorPane prefHeight="650.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eglv.sistemagerenciamentoacervos.controller.JornalCadController">
    <children>
-      <Label layoutX="120.0" layoutY="30.0" text="CADASTRO DE JORNAL">
+      <Label layoutX="349.0" layoutY="32.0" text="CADASTRO DE JORNAL">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Button fx:id="btnSair" layoutX="449.0" layoutY="35.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
-      <Label layoutX="55.0" layoutY="82.0" text="CÓDIGO:" AnchorPane.leftAnchor="55.0">
+      <Button fx:id="btnSair" layoutX="798.0" layoutY="36.0" mnemonicParsing="false" onAction="#sair" text="SAIR" />
+      <Label layoutX="66.0" layoutY="156.0" text="CÓDIGO:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="116.0" text="PAÍS:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="66.0" layoutY="190.0" text="PAÍS:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="216.0" layoutY="116.0" text="ESTADO:">
+      <Label layoutX="310.0" layoutY="191.0" text="ESTADO:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="361.0" layoutY="116.0" text="CIDADE:">
+      <Label layoutX="518.0" layoutY="191.0" text="CIDADE:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="149.0" text="DATA:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="71.0" layoutY="223.0" text="DATA:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="55.0" layoutY="187.0" text="LOCALIZAÇÃO NO ACERVO:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="54.0" layoutY="269.0" text="LOCALIZAÇÃO NO ACERVO:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="54.0" layoutY="220.0" text="NÚMERO DE PÁGINAS:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="334.0" layoutY="223.0" text="NÚMERO DE PÁGINAS:" AnchorPane.leftAnchor="334.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="317.0" prefHeight="27.0" prefWidth="68.0" text="EDIÇÃO:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="54.0" layoutY="302.0" prefHeight="27.0" prefWidth="68.0" text="EDIÇÃO:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="302.0" layoutY="317.0" text="IDIOMA:">
+      <Label layoutX="301.0" layoutY="302.0" text="IDIOMA:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="49.0" layoutY="257.0" text="TÍTULO:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="66.0" layoutY="89.0" text="TÍTULO:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="44.0" layoutY="290.0" text="SUBTÍTULO:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="66.0" layoutY="122.0" text="SUBTÍTULO:" AnchorPane.leftAnchor="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="44.0" layoutY="345.0" text="CAPA:" AnchorPane.leftAnchor="55.0">
+      <Label layoutX="567.0" layoutY="302.0" text="CAPA:" AnchorPane.leftAnchor="567.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -82,17 +82,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtCodigo" layoutX="131.0" layoutY="83.0" />
-      <TextField fx:id="txtPais" layoutX="98.0" layoutY="117.0" prefHeight="25.0" prefWidth="104.0" />
-      <TextField fx:id="txtEstado" layoutX="286.0" layoutY="117.0" prefHeight="25.0" prefWidth="62.0" />
-      <TextField fx:id="txtCidade" layoutX="427.0" layoutY="117.0" prefHeight="25.0" prefWidth="125.0" />
-      <TextField fx:id="txtLocalizacao" layoutX="287.0" layoutY="188.0" prefHeight="25.0" prefWidth="169.0" />
-      <TextField fx:id="txtPaginas" layoutX="243.0" layoutY="221.0" prefHeight="25.0" prefWidth="125.0" />
-      <TextField fx:id="txtTitulo" layoutX="117.0" layoutY="258.0" prefHeight="25.0" prefWidth="438.0" />
-      <TextField fx:id="txtSubtitulo" layoutX="161.0" layoutY="291.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField fx:id="txtEdicao" layoutX="131.0" layoutY="319.0" />
-      <TextField fx:id="txtIdioma" layoutX="382.0" layoutY="319.0" />
-      <DatePicker fx:id="dateData" layoutX="108.0" layoutY="150.0" />
+      <TextField fx:id="txtCodigo" layoutX="149.0" layoutY="157.0" prefHeight="25.0" prefWidth="611.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtPais" layoutX="117.0" layoutY="191.0" prefHeight="25.0" prefWidth="179.0" />
+      <TextField fx:id="txtEstado" layoutX="392.0" layoutY="192.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="txtCidade" layoutX="604.0" layoutY="192.0" prefHeight="25.0" prefWidth="157.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtLocalizacao" layoutX="288.0" layoutY="270.0" prefHeight="25.0" prefWidth="473.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtPaginas" layoutX="522.0" layoutY="224.0" prefHeight="25.0" prefWidth="241.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtTitulo" layoutX="140.0" layoutY="90.0" prefHeight="25.0" prefWidth="620.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtSubtitulo" layoutX="172.0" layoutY="123.0" prefHeight="25.0" prefWidth="588.0" AnchorPane.rightAnchor="137.0" />
+      <TextField fx:id="txtEdicao" layoutX="130.0" layoutY="304.0" />
+      <TextField fx:id="txtIdioma" layoutX="381.0" layoutY="304.0" />
+      <DatePicker fx:id="dateData" layoutX="128.0" layoutY="224.0" prefHeight="25.0" prefWidth="199.0" />
       <Label layoutX="289.0" layoutY="380.0" text="ASSUNTOS:" AnchorPane.leftAnchor="289.0">
          <font>
             <Font size="18.0" />
@@ -103,7 +103,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btnCapa" layoutX="108.0" layoutY="346.0" mnemonicParsing="false" onAction="#selecionarCapa" text="SELECIONAR IMAGEM" />
+      <Button fx:id="btnCapa" layoutX="620.0" layoutY="303.0" mnemonicParsing="false" onAction="#selecionarCapa" text="SELECIONAR IMAGEM" AnchorPane.rightAnchor="137.0" />
       <TableView fx:id="tblEditora" layoutX="50.0" layoutY="414.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="colEditora" prefWidth="75.0" text="Editora">
@@ -133,6 +133,6 @@
          </columnResizePolicy>
       </TableView>
       <TextField fx:id="txtPesquisaColaborador" layoutX="709.0" layoutY="382.0" />
-      <Button fx:id="btnSalvar" layoutX="709.0" layoutY="333.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR" />
+      <Button fx:id="btnSalvar" layoutX="789.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnSalvar" text="SALVAR" />
    </children>
 </AnchorPane>
