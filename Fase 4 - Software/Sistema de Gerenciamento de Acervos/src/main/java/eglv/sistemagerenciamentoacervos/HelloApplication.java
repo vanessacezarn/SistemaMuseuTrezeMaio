@@ -42,9 +42,14 @@ public class HelloApplication extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/LivroListarView.fxml"));
         //Scene scene = new Scene(fxmlLoader.load(), 937, 650);
 
-        //stage.setTitle("ACERVO MUSEU TREZE MAIO ");
-        //stage.setScene(scene);
-        //stage.show();
+        // MENU
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/MenuView.fxml"));
+
+        Scene scene = new Scene(fxmlLoader.load(), 937, 650);
+
+        stage.setTitle("ACERVO MUSEU TREZE MAIO");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
