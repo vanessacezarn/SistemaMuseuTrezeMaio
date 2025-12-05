@@ -66,6 +66,50 @@ public class JornalDAO {
         }
     }
 
+    public void atualizar(Jornal j) throws SQLException {
+        if (j.getId_jornal() == null) throw new SQLException("ID nulo");
+
+        final String sql = "UPDATE dbo.jornal SET codigo_jornal=?, pais=?, estado=?, cidade=?, data=?, " +
+                "localizacao_acervo=?, numero_paginas=?, edicao=?, idioma=?, titulo=?, subtitulo=?, capa=?, fk_editora_id_editora=? " +
+                "WHERE id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, j.getCodigo_jornal());
+            ps.setString(2, j.getPais());
+            ps.setString(3, j.getEstado());
+            ps.setString(4, j.getCidade());
+            ps.setDate(5, new java.sql.Date(j.getData().getTime())); // converter Date
+            ps.setString(6, j.getLocalizacao_acervo());
+            ps.setString(7, j.getNumero_paginas());
+            ps.setString(8, j.getEdicao());
+            ps.setString(9, j.getIdioma());
+            ps.setString(10, j.getTitulo());
+            ps.setString(11, j.getSubtitulo());
+            ps.setBytes(12, j.getCapa());
+            ps.setInt(13, j.getEditora().getId_editora());
+            ps.setInt(14, j.getId_jornal());
+
+            ps.executeUpdate();
+        }
+
+        final String sqlDeleteAssuntos = "DELETE FROM item_assunto WHERE fk_jornal_id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlDeleteAssuntos)) {
+            ps.setInt(1, j.getId_jornal());
+            ps.executeUpdate();
+        }
+        inserirAssuntos(j);
+
+        final String sqlDeleteColaboradores = "DELETE FROM item_colaborador WHERE fk_jornal_id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlDeleteColaboradores)) {
+            ps.setInt(1, j.getId_jornal());
+            ps.executeUpdate();
+        }
+        inserirColaboradores(j);
+    }
+
     public List<Jornal> listar() throws SQLException{
         final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
                 " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
@@ -76,6 +120,48 @@ public class JornalDAO {
              PreparedStatement ps = conn.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) lista.add(map(rs));
+        }
+        return lista;
+    }
+
+    public List<Jornal> buscarPorCodigo(String codigo) throws SQLException {
+        final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
+                " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
+                " FROM dbo.jornal WHERE codigo_jornal LIKE ?";
+
+        List<Jornal> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + codigo + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+        return lista;
+    }
+
+    public List<Jornal> buscarPorTitulo(String titulo) throws SQLException {
+        final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
+                " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
+                " FROM dbo.jornal WHERE titulo LIKE ?";
+
+        List<Jornal> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + titulo + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
         }
         return lista;
     }

@@ -205,21 +205,11 @@ public class JornalCadController {
             j.setQuantidade(null);
             j.setEditora(editoraSelecionada);
 
-            // Assuntos selecionados
             j.getAssuntos().addAll(tblAssunto.getSelectionModel().getSelectedItems());
 
-            // Colaboradores selecionados
             j.getColaboradores().addAll(tblColaborador.getSelectionModel().getSelectedItems());
 
-            // DAO
-            //private final JornalDAO dao = new JornalDAO();
-            //dao.inserir(j); // insere o jornal e pega o id gerado
-
             jdao.inserir(j);
-
-            // Inserir relações N:N
-            //dao.inserirAssuntos(j);
-            //dao.inserirColaboradores(j);
 
             jdao.inserirAssuntos(j);
             jdao.inserirColaboradores(j);

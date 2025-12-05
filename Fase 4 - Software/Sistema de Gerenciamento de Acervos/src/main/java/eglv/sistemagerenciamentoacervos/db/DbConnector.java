@@ -29,13 +29,14 @@ public class DbConnector {
     //acesso  vanessa
     //public static final String USER = "sa";
     //public static final String PASS = "0113MA1404A";
+
     // acesso luiza
     public static final String USER = "luizaa";
     public static final String PASS = "koda";
 
     //acesso frazzon
-    public static final String USER = "sa";
-    public static final String PASS = "zoe";
+    //public static final String USER = "sa";
+    //public static final String PASS = "zoe";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
