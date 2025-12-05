@@ -42,6 +42,9 @@ public class HelloApplication extends Application {
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/LivroExcluirView.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/LivroListarView.fxml"));
 
+        // MENU
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/eglv/sistemagerenciamentoacervos/view/MenuView.fxml"));
+
         Scene scene = new Scene(fxmlLoader.load(), 937, 650);
 
         stage.setTitle("ACERVO MUSEU TREZE MAIO");
