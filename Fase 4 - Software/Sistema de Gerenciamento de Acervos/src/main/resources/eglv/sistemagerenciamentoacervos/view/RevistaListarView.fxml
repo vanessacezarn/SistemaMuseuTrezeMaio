@@ -36,7 +36,7 @@
                     <TableColumn fx:id="colCodigo" prefWidth="130.3999538421631" text="CÓDIGO" />
                     <TableColumn fx:id="colTitulo" prefWidth="126.40003967285156" text="TÍTULO" />
                     <TableColumn fx:id="colAno" prefWidth="92.79998779296875" text="ANO" />
-                    <TableColumn fx:id="colAno" prefWidth="100.0" text="MES" />
+                    <TableColumn fx:id="colMes" prefWidth="100.0" text="MES" />
                     <TableColumn fx:id="colEditora" prefWidth="139.20004272460938" text="EDITORA" />
                     <TableColumn fx:id="colAssuntos" prefWidth="138.400146484375" text="ASSUNTOS" />
                     <TableColumn fx:id="colColaboradores" prefWidth="132.7998046875" text="COLABORADORES" />
