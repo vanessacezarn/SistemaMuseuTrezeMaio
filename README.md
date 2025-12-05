@@ -1,7 +1,7 @@
 # Sistema de Gerenciamento de Acervos para o Museu Treze de Maio
 Trabalho final das disciplinas de Implementação de Banco de Dados e de Laboratório de Desenvolvimento de Software.
 
-**Integrantes do grupo:** Éric Martins da Silva, Guilerme Frazzon Rolim, Luiza Lewandowsi Karlec e Vanessa Cezar do Nascimento
+**Integrantes do grupo:** Éric Martins da Silva, Guilherme Frazzon Rolim, Luiza Lewandowski Karlec e Vanessa Cezar do Nascimento
 ### ➤ Contexto e Justificativa do trabalho
 O Museu Treze de Maio, dedicado à preservação da cultura afro-brasileira em Santa Maria, possui um importante patrimônio que precisa ser digitalizado, catalogado e disponibilizado. O museu necessita de soluções tecnológicas para gerenciar dois acervos com demandas distintas — o Acervo Histórico (jornais, atas, fotos, cartas, relatos, objetos etc.) e a Biblioteca Comunitária (livros, revistas e jornais). Para garantir a preservação desse material e ampliar o acesso ao público, é essencial desenvolver um sistema de gerenciamento eficiente e acessível.
 ### ➤ Objetivo Geral do trabalho
@@ -22,3 +22,4 @@ Planejar a entrega do sistema, incluindo a instalação no local e a capacitaç�
 - Intellij (link: https://www.jetbrains.com/pt-br/idea/)
 - Scene Builder (link: https://gluonhq.com/products/scene-builder/)
 - Java Fx (link: https://openjfx.io/)
+- Visual Paradigm (link: https://www.visual-paradigm.com)
