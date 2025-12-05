@@ -191,6 +191,69 @@ public class JornalDAO {
         return lista;
     }
 
+    public List<Jornal> buscarPorData(String data) throws SQLException {
+        final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
+                " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
+                " FROM dbo.jornal WHERE data LIKE ?";
+
+        List<Jornal> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + data + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+        return lista;
+    }
+
+    public List<Jornal> buscarPorCidade(String cidade) throws SQLException {
+        final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
+                " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
+                " FROM dbo.jornal WHERE cidade LIKE ?";
+
+        List<Jornal> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + cidade + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+        return lista;
+    }
+
+    public List<Jornal> buscarPorEditora(String editora) throws SQLException {
+        final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
+                " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
+                " FROM dbo.jornal WHERE editora LIKE ?";
+
+        List<Jornal> lista = new ArrayList<>();
+
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, "%" + editora + "%");
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    lista.add(map(rs));
+                }
+            }
+        }
+        return lista;
+    }
+
     private Jornal map(ResultSet rs) throws SQLException {
         int idEditora = rs.getInt("fk_editora_id_editora");
 
