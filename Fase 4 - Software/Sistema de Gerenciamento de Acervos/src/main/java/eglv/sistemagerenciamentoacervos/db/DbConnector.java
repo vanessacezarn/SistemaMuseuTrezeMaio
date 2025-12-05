@@ -42,7 +42,7 @@ public class DbConnector {
     //public static final String USER = "sa";  // ou outro usuário
     //public static final String PASS = "eric123@";
 
-    //public static Connection getConnection() throws SQLException {
-    //    return DriverManager.getConnection(URL, USER, PASS);
-    //}
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASS);
+    }
 }

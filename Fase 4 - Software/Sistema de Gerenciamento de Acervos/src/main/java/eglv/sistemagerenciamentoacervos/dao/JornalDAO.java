@@ -110,6 +110,31 @@ public class JornalDAO {
         inserirColaboradores(j);
     }
 
+    public void excluir(Jornal j) throws SQLException {
+        if (j.getId_jornal() == null) throw new SQLException("ID nulo");
+
+        final String sqlDeleteAssuntos = "DELETE FROM item_assunto WHERE fk_jornal_id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlDeleteAssuntos)) {
+            ps.setInt(1, j.getId_jornal());
+            ps.executeUpdate();
+        }
+
+        final String sqlDeleteColaboradores = "DELETE FROM item_colaborador WHERE fk_jornal_id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlDeleteColaboradores)) {
+            ps.setInt(1, j.getId_jornal());
+            ps.executeUpdate();
+        }
+
+        final String sqlDeleteJornal = "DELETE FROM dbo.jornal WHERE id_jornal=?";
+        try (Connection conn = DbConnector.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sqlDeleteJornal)) {
+            ps.setInt(1, j.getId_jornal());
+            ps.executeUpdate();
+        }
+    }
+
     public List<Jornal> listar() throws SQLException{
         final String sql = "SELECT id_jornal, codigo_jornal, pais, estado, cidade, data, localizacao_acervo," +
                 " numero_paginas, edicao, idioma, titulo, subtitulo, quantidade, capa, fk_editora_id_editora" +
