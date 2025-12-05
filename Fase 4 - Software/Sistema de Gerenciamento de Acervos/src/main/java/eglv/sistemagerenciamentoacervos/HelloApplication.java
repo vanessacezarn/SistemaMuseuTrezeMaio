@@ -42,9 +42,9 @@ public class HelloApplication extends Application {
         //Scene scene = new Scene(fxmlLoader.load(), 937, 650);
 
 
-        stage.setTitle("ACERVO MUSEU TREZE MAIO ");
-        stage.setScene(scene);
-        stage.show();
+        //stage.setTitle("ACERVO MUSEU TREZE MAIO ");
+        //stage.setScene(scene);
+        //stage.show();
     }
 
     public static void main(String[] args) {
