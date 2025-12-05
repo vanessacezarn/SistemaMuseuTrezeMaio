@@ -36,6 +36,7 @@ public class MenuController {
         abrirView("/eglv/sistemagerenciamentoacervos/view/JornalCadView.fxml", "Cadastrar Jornais");
     }
 
+
     @FXML
     private void cadastrarLivros() throws IOException {
         abrirView("/eglv/sistemagerenciamentoacervos/view/LivroCadView.fxml", "Cadastrar Livros");
